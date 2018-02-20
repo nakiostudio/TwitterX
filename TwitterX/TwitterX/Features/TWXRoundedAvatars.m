@@ -8,6 +8,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)loadFeature {
     [TWXRuntime exchangeInstanceMethod:@"layout" ofClass:@"TMAvatarImageView"];
+    [TWXRuntime exchangeInstanceMethod:@"setBaseImage:" ofClass:@"TMAvatarSidebarButton"];
 }
 
 @end
@@ -23,6 +24,23 @@ NS_ASSUME_NONNULL_BEGIN
         view.layer.masksToBounds = YES;
         view.layer.cornerRadius = view.bounds.size.height * 0.5f;
     }
+}
+
+- (void)TMAvatarSidebarButton_setBaseImage:(nullable NSImage *)image {
+    if (image == nil) {
+        [self TMAvatarSidebarButton_setBaseImage:image];
+        return;
+    }
+    
+    NSImage *const roundedImage = [[NSImage alloc] initWithSize:[image size]];
+    [roundedImage lockFocus];
+    [[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationHigh];
+    NSRect imageFrame = NSRectFromCGRect(CGRectMake(0, 0, image.size.width, image.size.height));
+    [[NSBezierPath bezierPathWithRoundedRect:imageFrame xRadius:image.size.height * 0.5f yRadius:image.size.height * 0.5f] addClip];
+    [image drawAtPoint:NSZeroPoint fromRect:NSMakeRect(0, 0, image.size.width, image.size.height) operation:NSCompositingOperationSourceOver fraction:1];
+    [roundedImage unlockFocus];
+    
+    [self TMAvatarSidebarButton_setBaseImage:roundedImage];
 }
 
 @end
