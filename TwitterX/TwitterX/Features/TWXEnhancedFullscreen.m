@@ -8,6 +8,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)loadFeature {
     [TWXRuntime exchangeInstanceMethod:@"maxSize" ofClass:@"TMMainWindow"];
+    [TWXRuntime exchangeInstanceMethod:@"backgroundColor" ofClass:@"NSToolbarFullScreenWindow"];
 }
 
 @end
@@ -19,6 +20,15 @@ NS_ASSUME_NONNULL_BEGIN
         return NSMakeSize(CGFLOAT_MAX, CGFLOAT_MAX);
     }
     return [self TMMainWindow_maxSize];
+}
+
+- (nullable NSColor *)NSToolbarFullScreenWindow_backgroundColor {
+    if ([self isKindOfClass:[@"NSToolbarFullScreenWindow" twx_class]]) {
+        NSWindow *const window = (NSWindow *)self;
+        [window.contentView.layer.sublayers.firstObject setHidden:YES];
+        return [NSColor clearColor];
+    }
+    return [self NSToolbarFullScreenWindow_backgroundColor];
 }
 
 @end
