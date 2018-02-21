@@ -1,6 +1,7 @@
 #import "TwitterX.h"
 #import "TWXCharactersLimit.h"
 #import "TWXRoundedAvatars.h"
+#import "TWXEnhancedFullscreen.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -9,6 +10,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)load {
     [TWXCharactersLimit loadFeature];
     [TWXRoundedAvatars loadFeature];
+    [TWXEnhancedFullscreen loadFeature];
 }
 
 @end

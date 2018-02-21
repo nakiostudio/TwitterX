@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33075926203D9EF700CAA86C /* TWXEnhancedFullscreen.h in Headers */ = {isa = PBXBuildFile; fileRef = 33075924203D9EF700CAA86C /* TWXEnhancedFullscreen.h */; };
+		33075927203D9EF700CAA86C /* TWXEnhancedFullscreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 33075925203D9EF700CAA86C /* TWXEnhancedFullscreen.m */; };
 		335D38CD20387EE300379A21 /* TwitterX.h in Headers */ = {isa = PBXBuildFile; fileRef = 335D38CB20387EE300379A21 /* TwitterX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		335D38D320387EF100379A21 /* TWXFeature.h in Headers */ = {isa = PBXBuildFile; fileRef = 335D38B420386E4F00379A21 /* TWXFeature.h */; };
 		335D38D520387EF600379A21 /* TWXCharactersLimit.h in Headers */ = {isa = PBXBuildFile; fileRef = 335D38B820386E8300379A21 /* TWXCharactersLimit.h */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		33075924203D9EF700CAA86C /* TWXEnhancedFullscreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWXEnhancedFullscreen.h; sourceTree = "<group>"; };
+		33075925203D9EF700CAA86C /* TWXEnhancedFullscreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWXEnhancedFullscreen.m; sourceTree = "<group>"; };
 		335D38B420386E4F00379A21 /* TWXFeature.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWXFeature.h; sourceTree = "<group>"; };
 		335D38B820386E8300379A21 /* TWXCharactersLimit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWXCharactersLimit.h; sourceTree = "<group>"; };
 		335D38B920386E8300379A21 /* TWXCharactersLimit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWXCharactersLimit.m; sourceTree = "<group>"; };
@@ -77,6 +81,8 @@
 				335D38B920386E8300379A21 /* TWXCharactersLimit.m */,
 				335D38BC20386EA500379A21 /* TWXRoundedAvatars.h */,
 				335D38BD20386EA500379A21 /* TWXRoundedAvatars.m */,
+				33075924203D9EF700CAA86C /* TWXEnhancedFullscreen.h */,
+				33075925203D9EF700CAA86C /* TWXEnhancedFullscreen.m */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -112,6 +118,7 @@
 				335D38D320387EF100379A21 /* TWXFeature.h in Headers */,
 				335D38CD20387EE300379A21 /* TwitterX.h in Headers */,
 				335D38D720387EFC00379A21 /* TWXRoundedAvatars.h in Headers */,
+				33075926203D9EF700CAA86C /* TWXEnhancedFullscreen.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +192,7 @@
 			files = (
 				335D38E02038E45C00379A21 /* TwitterX.m in Sources */,
 				335D38D820387EFF00379A21 /* TWXRoundedAvatars.m in Sources */,
+				33075927203D9EF700CAA86C /* TWXEnhancedFullscreen.m in Sources */,
 				335D38D620387EF900379A21 /* TWXCharactersLimit.m in Sources */,
 				335D38DE2038DA6100379A21 /* TWXRuntime.m in Sources */,
 			);
