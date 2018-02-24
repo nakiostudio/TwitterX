@@ -34,6 +34,22 @@ Increased chars limit to 280
 <img src="/README/chars_limit.png" width="100%"/>
 </td>
 </tr>
+<tr>
+<td width="50%">
+New light theme
+</td>
+<td width="50%">
+Fixed full-screen mode
+</td>
+</tr>
+<tr>
+<td width="50%">
+<img src="/README/light_theme.png" width="100%"/>
+</td>
+<td width="50%">
+<img src="/README/full_screen_fix.png" width="100%"/>
+</td>
+</tr>
 </table>
 
 ## Contributing
