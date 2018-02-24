@@ -20,6 +20,8 @@
 		335D38E02038E45C00379A21 /* TwitterX.m in Sources */ = {isa = PBXBuildFile; fileRef = 335D38DF2038E45C00379A21 /* TwitterX.m */; };
 		C1D846F42041BB080016E52D /* TWXRoundedStatusContent.h in Headers */ = {isa = PBXBuildFile; fileRef = C1D846F22041BB080016E52D /* TWXRoundedStatusContent.h */; };
 		C1D846F52041BB080016E52D /* TWXRoundedStatusContent.m in Sources */ = {isa = PBXBuildFile; fileRef = C1D846F32041BB080016E52D /* TWXRoundedStatusContent.m */; };
+		C1D846F82041F5950016E52D /* TWXLightThemeReborn.h in Headers */ = {isa = PBXBuildFile; fileRef = C1D846F62041F5940016E52D /* TWXLightThemeReborn.h */; };
+		C1D846F92041F5950016E52D /* TWXLightThemeReborn.m in Sources */ = {isa = PBXBuildFile; fileRef = C1D846F72041F5940016E52D /* TWXLightThemeReborn.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		335D38DF2038E45C00379A21 /* TwitterX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterX.m; sourceTree = "<group>"; };
 		C1D846F22041BB080016E52D /* TWXRoundedStatusContent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWXRoundedStatusContent.h; sourceTree = "<group>"; };
 		C1D846F32041BB080016E52D /* TWXRoundedStatusContent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWXRoundedStatusContent.m; sourceTree = "<group>"; };
+		C1D846F62041F5940016E52D /* TWXLightThemeReborn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWXLightThemeReborn.h; sourceTree = "<group>"; };
+		C1D846F72041F5940016E52D /* TWXLightThemeReborn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWXLightThemeReborn.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,8 @@
 				33075925203D9EF700CAA86C /* TWXEnhancedFullscreen.m */,
 				C1D846F22041BB080016E52D /* TWXRoundedStatusContent.h */,
 				C1D846F32041BB080016E52D /* TWXRoundedStatusContent.m */,
+				C1D846F62041F5940016E52D /* TWXLightThemeReborn.h */,
+				C1D846F72041F5940016E52D /* TWXLightThemeReborn.m */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -120,6 +126,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				335D38D520387EF600379A21 /* TWXCharactersLimit.h in Headers */,
+				C1D846F82041F5950016E52D /* TWXLightThemeReborn.h in Headers */,
 				335D38DD2038DA6100379A21 /* TWXRuntime.h in Headers */,
 				335D38D320387EF100379A21 /* TWXFeature.h in Headers */,
 				C1D846F42041BB080016E52D /* TWXRoundedStatusContent.h in Headers */,
@@ -202,6 +209,7 @@
 				33075927203D9EF700CAA86C /* TWXEnhancedFullscreen.m in Sources */,
 				335D38D620387EF900379A21 /* TWXCharactersLimit.m in Sources */,
 				335D38DE2038DA6100379A21 /* TWXRuntime.m in Sources */,
+				C1D846F92041F5950016E52D /* TWXLightThemeReborn.m in Sources */,
 				C1D846F52041BB080016E52D /* TWXRoundedStatusContent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

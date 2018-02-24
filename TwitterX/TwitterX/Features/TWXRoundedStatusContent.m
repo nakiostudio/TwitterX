@@ -22,7 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
         NSView *const containerView = (NSView *)[self performSelector:@selector(containerView)];
         containerView.layer.cornerRadius = 12.0f;
         NSTextField *const textField = (NSTextField *)[self performSelector:@selector(tweetTextField)];
-        textField.backgroundColor = [NSColor colorWithCGColor:cell.layer.backgroundColor];
+        if (cell.layer.backgroundColor) {
+            textField.backgroundColor = [NSColor colorWithCGColor:cell.layer.backgroundColor];
+        }
     }
 }
 

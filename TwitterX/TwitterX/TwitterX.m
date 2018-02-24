@@ -3,6 +3,7 @@
 #import "TWXRoundedAvatars.h"
 #import "TWXEnhancedFullscreen.h"
 #import "TWXRoundedStatusContent.h"
+#import "TWXLightThemeReborn.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -13,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
     [TWXRoundedAvatars loadFeature];
     [TWXEnhancedFullscreen loadFeature];
     [TWXRoundedStatusContent loadFeature];
+    [TWXLightThemeReborn loadFeature];
 }
 
 @end
