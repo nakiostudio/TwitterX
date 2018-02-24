@@ -18,6 +18,8 @@
 		335D38DD2038DA6100379A21 /* TWXRuntime.h in Headers */ = {isa = PBXBuildFile; fileRef = 335D38DB2038DA6100379A21 /* TWXRuntime.h */; };
 		335D38DE2038DA6100379A21 /* TWXRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 335D38DC2038DA6100379A21 /* TWXRuntime.m */; };
 		335D38E02038E45C00379A21 /* TwitterX.m in Sources */ = {isa = PBXBuildFile; fileRef = 335D38DF2038E45C00379A21 /* TwitterX.m */; };
+		C1D846F42041BB080016E52D /* TWXRoundedStatusContent.h in Headers */ = {isa = PBXBuildFile; fileRef = C1D846F22041BB080016E52D /* TWXRoundedStatusContent.h */; };
+		C1D846F52041BB080016E52D /* TWXRoundedStatusContent.m in Sources */ = {isa = PBXBuildFile; fileRef = C1D846F32041BB080016E52D /* TWXRoundedStatusContent.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		335D38DB2038DA6100379A21 /* TWXRuntime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWXRuntime.h; sourceTree = "<group>"; };
 		335D38DC2038DA6100379A21 /* TWXRuntime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWXRuntime.m; sourceTree = "<group>"; };
 		335D38DF2038E45C00379A21 /* TwitterX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterX.m; sourceTree = "<group>"; };
+		C1D846F22041BB080016E52D /* TWXRoundedStatusContent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWXRoundedStatusContent.h; sourceTree = "<group>"; };
+		C1D846F32041BB080016E52D /* TWXRoundedStatusContent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWXRoundedStatusContent.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,8 @@
 				335D38BD20386EA500379A21 /* TWXRoundedAvatars.m */,
 				33075924203D9EF700CAA86C /* TWXEnhancedFullscreen.h */,
 				33075925203D9EF700CAA86C /* TWXEnhancedFullscreen.m */,
+				C1D846F22041BB080016E52D /* TWXRoundedStatusContent.h */,
+				C1D846F32041BB080016E52D /* TWXRoundedStatusContent.m */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -116,6 +122,7 @@
 				335D38D520387EF600379A21 /* TWXCharactersLimit.h in Headers */,
 				335D38DD2038DA6100379A21 /* TWXRuntime.h in Headers */,
 				335D38D320387EF100379A21 /* TWXFeature.h in Headers */,
+				C1D846F42041BB080016E52D /* TWXRoundedStatusContent.h in Headers */,
 				335D38CD20387EE300379A21 /* TwitterX.h in Headers */,
 				335D38D720387EFC00379A21 /* TWXRoundedAvatars.h in Headers */,
 				33075926203D9EF700CAA86C /* TWXEnhancedFullscreen.h in Headers */,
@@ -195,6 +202,7 @@
 				33075927203D9EF700CAA86C /* TWXEnhancedFullscreen.m in Sources */,
 				335D38D620387EF900379A21 /* TWXCharactersLimit.m in Sources */,
 				335D38DE2038DA6100379A21 /* TWXRuntime.m in Sources */,
+				C1D846F52041BB080016E52D /* TWXRoundedStatusContent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +324,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
+				GCC_WARN_UNDECLARED_SELECTOR = NO;
 				INFOPLIST_FILE = TwitterX/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
@@ -339,6 +348,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
+				GCC_WARN_UNDECLARED_SELECTOR = NO;
 				INFOPLIST_FILE = TwitterX/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";

@@ -2,6 +2,7 @@
 #import "TWXCharactersLimit.h"
 #import "TWXRoundedAvatars.h"
 #import "TWXEnhancedFullscreen.h"
+#import "TWXRoundedStatusContent.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -11,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
     [TWXCharactersLimit loadFeature];
     [TWXRoundedAvatars loadFeature];
     [TWXEnhancedFullscreen loadFeature];
+    [TWXRoundedStatusContent loadFeature];
 }
 
 @end
