@@ -4,6 +4,8 @@
 #import "TWXEnhancedFullscreen.h"
 #import "TWXRoundedStatusContent.h"
 #import "TWXLightThemeReborn.h"
+#import "TWXPretendBeingiPhone.h"
+#import "TWXRepliesCount.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
     [TWXEnhancedFullscreen loadFeature];
     [TWXRoundedStatusContent loadFeature];
     [TWXLightThemeReborn loadFeature];
+    [TWXPretendBeingiPhone loadFeature];
+    [TWXRepliesCount loadFeature];
 }
 
 @end

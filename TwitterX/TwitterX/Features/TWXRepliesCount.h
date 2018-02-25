@@ -1,13 +1,10 @@
-//
-//  TWXRepliesCount.h
-//  TwitterX
-//
-//  Created by Carlos Vidal Pallin on 25/02/2018.
-//  Copyright © 2018 twitterx. All rights reserved.
-//
-
 #import <Foundation/Foundation.h>
+#import "TWXFeature.h"
 
-@interface TWXRepliesCount : NSObject
+NS_ASSUME_NONNULL_BEGIN
+
+@interface TWXRepliesCount: NSObject <TWXFeature>
 
 @end
+
+NS_ASSUME_NONNULL_END
