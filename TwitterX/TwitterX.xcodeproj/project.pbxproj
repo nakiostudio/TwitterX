@@ -18,6 +18,8 @@
 		335D38DD2038DA6100379A21 /* TWXRuntime.h in Headers */ = {isa = PBXBuildFile; fileRef = 335D38DB2038DA6100379A21 /* TWXRuntime.h */; };
 		335D38DE2038DA6100379A21 /* TWXRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 335D38DC2038DA6100379A21 /* TWXRuntime.m */; };
 		335D38E02038E45C00379A21 /* TwitterX.m in Sources */ = {isa = PBXBuildFile; fileRef = 335D38DF2038E45C00379A21 /* TwitterX.m */; };
+		C18C74F620507003001B0AAC /* TWXDirectMessagesCrash.h in Headers */ = {isa = PBXBuildFile; fileRef = C18C74F420507003001B0AAC /* TWXDirectMessagesCrash.h */; };
+		C18C74F720507003001B0AAC /* TWXDirectMessagesCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = C18C74F520507003001B0AAC /* TWXDirectMessagesCrash.m */; };
 		C1D846F42041BB080016E52D /* TWXRoundedStatusContent.h in Headers */ = {isa = PBXBuildFile; fileRef = C1D846F22041BB080016E52D /* TWXRoundedStatusContent.h */; };
 		C1D846F52041BB080016E52D /* TWXRoundedStatusContent.m in Sources */ = {isa = PBXBuildFile; fileRef = C1D846F32041BB080016E52D /* TWXRoundedStatusContent.m */; };
 		C1D846F82041F5950016E52D /* TWXLightThemeReborn.h in Headers */ = {isa = PBXBuildFile; fileRef = C1D846F62041F5940016E52D /* TWXLightThemeReborn.h */; };
@@ -42,6 +44,8 @@
 		335D38DB2038DA6100379A21 /* TWXRuntime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWXRuntime.h; sourceTree = "<group>"; };
 		335D38DC2038DA6100379A21 /* TWXRuntime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWXRuntime.m; sourceTree = "<group>"; };
 		335D38DF2038E45C00379A21 /* TwitterX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterX.m; sourceTree = "<group>"; };
+		C18C74F420507003001B0AAC /* TWXDirectMessagesCrash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWXDirectMessagesCrash.h; sourceTree = "<group>"; };
+		C18C74F520507003001B0AAC /* TWXDirectMessagesCrash.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWXDirectMessagesCrash.m; sourceTree = "<group>"; };
 		C1D846F22041BB080016E52D /* TWXRoundedStatusContent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWXRoundedStatusContent.h; sourceTree = "<group>"; };
 		C1D846F32041BB080016E52D /* TWXRoundedStatusContent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWXRoundedStatusContent.m; sourceTree = "<group>"; };
 		C1D846F62041F5940016E52D /* TWXLightThemeReborn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWXLightThemeReborn.h; sourceTree = "<group>"; };
@@ -107,6 +111,8 @@
 				C1D846FF204358FE0016E52D /* TWXPretendBeingiPhone.m */,
 				C1D846FA2042B08C0016E52D /* TWXRepliesCount.h */,
 				C1D846FB2042B08C0016E52D /* TWXRepliesCount.m */,
+				C18C74F420507003001B0AAC /* TWXDirectMessagesCrash.h */,
+				C18C74F520507003001B0AAC /* TWXDirectMessagesCrash.m */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -140,6 +146,7 @@
 				C1D846FC2042B08C0016E52D /* TWXRepliesCount.h in Headers */,
 				335D38D520387EF600379A21 /* TWXCharactersLimit.h in Headers */,
 				C1D84700204358FE0016E52D /* TWXPretendBeingiPhone.h in Headers */,
+				C18C74F620507003001B0AAC /* TWXDirectMessagesCrash.h in Headers */,
 				C1D846F82041F5950016E52D /* TWXLightThemeReborn.h in Headers */,
 				335D38DD2038DA6100379A21 /* TWXRuntime.h in Headers */,
 				335D38D320387EF100379A21 /* TWXFeature.h in Headers */,
@@ -220,6 +227,7 @@
 			files = (
 				335D38E02038E45C00379A21 /* TwitterX.m in Sources */,
 				335D38D820387EFF00379A21 /* TWXRoundedAvatars.m in Sources */,
+				C18C74F720507003001B0AAC /* TWXDirectMessagesCrash.m in Sources */,
 				33075927203D9EF700CAA86C /* TWXEnhancedFullscreen.m in Sources */,
 				C1D84701204358FE0016E52D /* TWXPretendBeingiPhone.m in Sources */,
 				335D38D620387EF900379A21 /* TWXCharactersLimit.m in Sources */,

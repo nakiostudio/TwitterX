@@ -6,6 +6,7 @@
 #import "TWXLightThemeReborn.h"
 #import "TWXPretendBeingiPhone.h"
 #import "TWXRepliesCount.h"
+#import "TWXDirectMessagesCrash.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
     [TWXLightThemeReborn loadFeature];
     [TWXPretendBeingiPhone loadFeature];
     [TWXRepliesCount loadFeature];
+    [TWXDirectMessagesCrash loadFeature];
 }
 
 @end
