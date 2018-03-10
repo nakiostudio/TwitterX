@@ -1,27 +1,57 @@
-//
-//  AppDelegate.swift
-//  LauncherX
-//
-//  Created by Carlos Vidal Pallin on 09/03/2018.
-//  Copyright © 2018 nakioStudio. All rights reserved.
-//
-
 import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
-    @IBOutlet weak var window: NSWindow!
-
-
+    
+    private let twitterX: TwitterX = TwitterX()
+    
+    @IBOutlet private var mainWindow: NSWindow!
+    @IBOutlet private var dragAndDropViewController: DragAndDropViewController!
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+        self.twitterX.twitterAppURL = nil
+        self.dragAndDropViewController.didReceiveDragAndDropURL = { [weak self] url in
+            self?.twitterX.twitterAppURL = url
+            self?.launchTwitterApp()
+        }
+        
+        self.twitterX.checkUpdates { [weak self] (isThereUpdate) in
+            guard isThereUpdate else {
+                self?.launchTwitterApp()
+                return
+            }
+            self?.displayUpdateModal()
+            self?.launchTwitterApp()
+        }
     }
-
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
+    
+    // MARK: - Private
+    
+    private func launchTwitterApp() {
+        self.twitterX.launchTwitterApp { [weak self] (success, error) in
+            if success {
+                exit(0)
+            }
+            if let error = error {
+                self?.displayError(error)
+            }
+        }
     }
-
+    
+    private func displayError(_ error: Error) {
+        let alert: NSAlert = NSAlert(error: error)
+        alert.runModal()
+    }
+    
+    private func displayUpdateModal() {
+        let alert: NSAlert = NSAlert()
+        alert.messageText = "There is a new version of TwitterX available"
+        alert.informativeText = "New tweaks and fixes are available. Click on \"Get update\" to visit the changelog and download the latest version."
+        alert.addButton(withTitle: "Get update")
+        alert.addButton(withTitle: "Not now")
+        if alert.runModal().rawValue == 1000 {
+            NSWorkspace.shared.open(URL(string: "https://github.com/nakiostudio/TwitterX/releases")!)
+        }
+    }
 
 }
-

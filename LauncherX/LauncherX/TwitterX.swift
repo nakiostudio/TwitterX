@@ -1,9 +1,66 @@
-//
-//  TwitterX.swift
-//  LauncherX
-//
-//  Created by Carlos Vidal Pallin on 10/03/2018.
-//  Copyright © 2018 nakioStudio. All rights reserved.
-//
+import AppKit
 
-import Foundation
+final class TwitterX {
+    
+    private static let twitterAppURLKey: String = "twitterAppURL"
+    private static let latestVersionURL: URL = URL(string: "http://www.nakiostudio.com/txversion")!
+    
+    private let urlSession: URLSession
+    private let userDefaults: UserDefaults
+    private let twitterXFrameworkURL: URL!
+    private let versionNumber: String!
+    
+    var twitterAppURL: URL? {
+        didSet {
+            userDefaults.set(twitterAppURL, forKey: TwitterX.twitterAppURLKey)
+        }
+    }
+    
+    init(urlSession: URLSession = .shared,  userDefaults: UserDefaults = .standard) {
+        self.urlSession = urlSession
+        self.userDefaults = userDefaults
+        self.twitterAppURL = userDefaults.url(forKey: TwitterX.twitterAppURLKey)
+        let twitterXFrameworkPath: String = Bundle.main.path(forResource: "TwitterX", ofType: "framework")! + "/Versions/A/TwitterX"
+        self.twitterXFrameworkURL = URL(fileURLWithPath: twitterXFrameworkPath)
+        self.versionNumber = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+    }
+    
+    // MARK: - Public
+    
+    func launchTwitterApp(completion: (Bool, Error?) -> Void) {
+        guard let twitterAppURL = self.twitterAppURL else {
+            completion(false, nil)
+            return
+        }
+        
+        do {
+            try NSWorkspace.shared.launchApplication(
+                at: twitterAppURL,
+                options: [],
+                configuration: [.environment: ["DYLD_INSERT_LIBRARIES": self.twitterXFrameworkURL.path]]
+            )
+            completion(true, nil)
+        } catch let error {
+            self.twitterAppURL = nil
+            completion(false, error)
+        }
+    }
+    
+    func checkUpdates(completion: @escaping (Bool) -> Void) {
+        self.urlSession.dataTask(with: TwitterX.latestVersionURL) { (data, response, error) in
+            guard let data = data, error == nil,
+                let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any],
+                let latestVersionNumber = json?["version_number"] as? String else {
+                    DispatchQueue.main.async {
+                        completion(false)
+                    }
+                    return
+            }
+            
+            DispatchQueue.main.async {
+                completion(latestVersionNumber.compare(self.versionNumber, options: .numeric) == .orderedDescending)
+            }
+        }.resume()
+    }
+    
+}
