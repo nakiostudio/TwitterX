@@ -7,20 +7,12 @@ NS_ASSUME_NONNULL_BEGIN
 @implementation TWXEnhancedFullscreen
 
 + (void)loadFeature {
-    [TWXRuntime exchangeInstanceMethod:@"maxSize" ofClass:@"TMMainWindow"];
     [TWXRuntime exchangeInstanceMethod:@"backgroundColor" ofClass:@"NSToolbarFullScreenWindow"];
 }
 
 @end
 
 @implementation NSObject (TWX)
-
-- (NSSize)TMMainWindow_maxSize {
-    if ([self isKindOfClass:[@"TMMainWindow" twx_class]]) {
-        return NSMakeSize(CGFLOAT_MAX, CGFLOAT_MAX);
-    }
-    return [self TMMainWindow_maxSize];
-}
 
 - (nullable NSColor *)NSToolbarFullScreenWindow_backgroundColor {
     if ([self isKindOfClass:[@"NSToolbarFullScreenWindow" twx_class]]) {
