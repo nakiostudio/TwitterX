@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:LauncherX/LauncherX.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:TwitterX/TwitterX.xcodeproj">
    </FileRef>
 </Workspace>
