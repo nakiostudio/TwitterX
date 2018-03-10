@@ -9,7 +9,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet private var dragAndDropViewController: DragAndDropViewController!
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        self.twitterX.twitterAppURL = nil
         self.dragAndDropViewController.didReceiveDragAndDropURL = { [weak self] url in
             self?.twitterX.twitterAppURL = url
             self?.launchTwitterApp()
