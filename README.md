@@ -19,9 +19,9 @@ application from the macOS AppStore but if you ever installed the application it
 available under the **purchases** section of the AppStore.
 
 TwitterX is a framework that once it is loaded modifies the application behaviour on runtime. This
-project provides **LaucherX**, an application that eases the task of loading TwitterX.
+project provides **LauncherX**, an application that eases the task of loading TwitterX.
 
-[Download LaucherX](https://github.com/nakiostudio/TwitterX/releases)
+[Download LauncherX](https://github.com/nakiostudio/TwitterX/releases)
 
 Drag the Twitter application and drop it into LauncherX, it will launch the modified version of the
 Twitter app. Next time you execute LauncherX it will automatically run the hack.
