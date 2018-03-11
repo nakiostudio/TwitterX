@@ -3,7 +3,7 @@ import AppKit
 final class TwitterX {
     
     private static let twitterAppURLKey: String = "twitterAppURL"
-    private static let latestVersionURL: URL = URL(string: "http://www.nakiostudio.com/txversion")!
+    private static let latestVersionURL: URL = URL(string: "https://raw.githubusercontent.com/nakiostudio/TwitterX/master/version")!
     
     private let urlSession: URLSession
     private let userDefaults: UserDefaults
