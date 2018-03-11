@@ -69,15 +69,9 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="File" id="bib-Uj-vzu">
                         <items>
-                            <menuItem title="Open…" keyEquivalent="o" id="IAo-SY-fd9">
-                                <connections>
-                                    <action selector="openDocument:" target="-1" id="bVn-NM-KNZ"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
                             <menuItem title="Quit" keyEquivalent="q" id="DVo-aG-piG">
                                 <connections>
-                                    <action selector="finish:" target="-1" id="CRo-Py-yoA"/>
+                                    <action selector="didTapQuitMenuItem:" target="Voe-Tx-rLC" id="TWH-Mo-zF0"/>
                                 </connections>
                             </menuItem>
                         </items>

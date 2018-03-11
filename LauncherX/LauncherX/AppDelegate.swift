@@ -50,5 +50,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             NSWorkspace.shared.open(URL(string: "https://github.com/nakiostudio/TwitterX/releases")!)
         }
     }
+    
+    @IBAction private func didTapQuitMenuItem(_ sender: Any?) {
+        exit(0)
+    }
 
 }
