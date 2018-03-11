@@ -15,11 +15,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         
         self.twitterX.checkUpdates { [weak self] (isThereUpdate) in
-            guard isThereUpdate else {
-                self?.launchTwitterApp()
-                return
+            if isThereUpdate {
+                self?.displayUpdateModal()
             }
-            self?.displayUpdateModal()
             self?.launchTwitterApp()
         }
     }

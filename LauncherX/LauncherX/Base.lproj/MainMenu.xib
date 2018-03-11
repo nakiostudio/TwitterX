@@ -14,7 +14,7 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="LauncherX" customModuleProvider="target">
             <connections>
-                <outlet property="dragAndDropViewController" destination="3nX-K4-Ia9" id="Hg2-88-shH"/>
+                <outlet property="dragAndDropViewController" destination="3nX-K4-Ia9" id="xNi-Jo-Cnb"/>
                 <outlet property="mainWindow" destination="TFC-SP-8im" id="hFi-mP-bRo"/>
             </connections>
         </customObject>
@@ -117,18 +117,18 @@
                                 </textFieldCell>
                             </textField>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="aN3-vg-o0e" customClass="DragAndDropView" customModule="LauncherX" customModuleProvider="target">
-                                <rect key="frame" x="25" y="25" width="318" height="180"/>
+                                <rect key="frame" x="0.0" y="0.0" width="368" height="230"/>
                             </customView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="CDn-6X-2st" firstAttribute="centerY" secondItem="iRW-hA-HVc" secondAttribute="centerY" id="2Qf-Jn-S2X"/>
                             <constraint firstItem="T0t-TM-Gza" firstAttribute="centerY" secondItem="iRW-hA-HVc" secondAttribute="centerY" id="47l-NU-F4W"/>
                             <constraint firstAttribute="trailing" secondItem="T0t-TM-Gza" secondAttribute="trailing" constant="20" id="8Kt-QR-c0g"/>
-                            <constraint firstAttribute="trailing" secondItem="aN3-vg-o0e" secondAttribute="trailing" constant="25" id="Fgb-rE-Sg7"/>
-                            <constraint firstItem="aN3-vg-o0e" firstAttribute="leading" secondItem="iRW-hA-HVc" secondAttribute="leading" constant="25" id="GwT-k9-UkJ"/>
-                            <constraint firstAttribute="bottom" secondItem="aN3-vg-o0e" secondAttribute="bottom" constant="25" id="KrF-Vk-dzR"/>
+                            <constraint firstAttribute="trailing" secondItem="aN3-vg-o0e" secondAttribute="trailing" id="Fgb-rE-Sg7"/>
+                            <constraint firstItem="aN3-vg-o0e" firstAttribute="leading" secondItem="iRW-hA-HVc" secondAttribute="leading" id="GwT-k9-UkJ"/>
+                            <constraint firstAttribute="bottom" secondItem="aN3-vg-o0e" secondAttribute="bottom" id="KrF-Vk-dzR"/>
                             <constraint firstItem="CDn-6X-2st" firstAttribute="centerX" secondItem="iRW-hA-HVc" secondAttribute="centerX" id="T2z-9e-pnW"/>
-                            <constraint firstItem="aN3-vg-o0e" firstAttribute="top" secondItem="iRW-hA-HVc" secondAttribute="top" constant="25" id="cyj-Yh-NNn"/>
+                            <constraint firstItem="aN3-vg-o0e" firstAttribute="top" secondItem="iRW-hA-HVc" secondAttribute="top" id="cyj-Yh-NNn"/>
                             <constraint firstItem="T0t-TM-Gza" firstAttribute="leading" secondItem="iRW-hA-HVc" secondAttribute="leading" constant="20" id="oA3-dn-2DR"/>
                         </constraints>
                     </customView>

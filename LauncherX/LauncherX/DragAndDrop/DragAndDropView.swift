@@ -1,13 +1,5 @@
 import AppKit
 
-private extension URL {
-    
-    func isTwitterAppURL() -> Bool {
-        return self.lastPathComponent == "Twitter.app"
-    }
-    
-}
-
 private extension NSDraggingInfo {
     
     func isDraggingTwitterApp() -> Bool {
@@ -18,7 +10,7 @@ private extension NSDraggingInfo {
         guard self.draggingPasteboard().canReadObject(forClasses: [NSURL.self]) else { return nil }
         let pasteboard = self.draggingPasteboard()
         let urls = pasteboard.readObjects(forClasses: [NSURL.self]) as? [URL]
-        return urls?.first { $0.isTwitterAppURL() }
+        return urls?.first { $0.lastPathComponent == "Twitter.app" }
     }
     
 }
@@ -78,8 +70,6 @@ final class DragAndDropView: NSView {
     private func setup() {
         self.alphaValue = 0.0
         self.wantsLayer = true
-        self.layer?.borderWidth = 1.0
-        self.layer?.cornerRadius = 4.0
     }
     
     private func updateAppearance(forState state: State) {
@@ -89,11 +79,9 @@ final class DragAndDropView: NSView {
         case .validDrag:
             self.alphaValue = 0.2
             self.layer?.backgroundColor = NSColor(calibratedRed: 105.0/255.0, green: 110.0/255.0, blue: 135.0/255.0, alpha: 1.0).cgColor
-            self.layer?.borderColor = NSColor.white.cgColor
         case .invalidDrag:
             self.alphaValue = 0.2
             self.layer?.backgroundColor = NSColor(calibratedRed: 214.0/255.0, green: 117.0/255.0, blue: 117.0/255.0, alpha: 1.0).cgColor
-            self.layer?.borderColor = NSColor(calibratedRed: 1.0, green: 169.0/255.0, blue: 169.0/255.0, alpha: 1.0).cgColor
         }
     }
     

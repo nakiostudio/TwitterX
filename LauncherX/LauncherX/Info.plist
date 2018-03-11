@@ -28,7 +28,6 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
-    
     <key>NSAppTransportSecurity</key>
     <dict>
         <key>NSExceptionDomains</key>
@@ -40,6 +39,5 @@
             </dict>
         </dict>
     </dict>
-    
 </dict>
 </plist>
