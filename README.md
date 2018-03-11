@@ -4,7 +4,7 @@ An educational project aiming to maintain Twitter for macOS working while adding
 All this, by injecting code into the official binary.
 
 <h3 align="center">
-<img src="/README/screenshot"/>
+<img width="650px" src="/README/screenshot.png"/>
 </h3>
 
 ## Why
