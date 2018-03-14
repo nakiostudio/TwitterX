@@ -40,7 +40,7 @@ static void *TwitterStatusRepliesCountKey = &TwitterStatusRepliesCountKey;
 - (void)TwitterAPI_v1_1_GET:(NSString *)endpoint parameters:(NSDictionary *)parameters callback:(id)callback {
     NSMutableDictionary *customParameters = [parameters mutableCopy];
     
-    if ([self isKindOfClass:[@"TwitterAPI" twx_class]] && [endpoint containsString:@"statuses/"]) {
+    if ([self isKindOfClass:[@"TwitterAPI" twx_class]] && [endpoint rangeOfString:@"statuses/"].location != NSNotFound) {
         [customParameters setObject:@"iPhone-13" forKey:@"cards_platform"];
         [customParameters setObject:@1 forKey:@"include_reply_count"];
     }

@@ -34,8 +34,11 @@ final class DragAndDropView: NSView {
     var didReceiveDragAndDropURL: ((URL) -> Void)? {
         didSet {
             if didReceiveDragAndDropURL != nil {
-                self.registerForDraggedTypes([.fileURL])
-                return
+                if #available(OSX 10.13, *) {
+                    self.registerForDraggedTypes([.fileURL])
+                    return
+                }
+                self.registerForDraggedTypes([NSPasteboard.PasteboardType.fileNameType(forPathExtension: "app")])
             }
             self.unregisterDraggedTypes()
         }
