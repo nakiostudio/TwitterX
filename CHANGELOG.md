@@ -1,5 +1,9 @@
 # Changelog
 
+## v.0.0.2
+
+* Supported macOS versions greater or equal to `10.9`.
+
 ## v.0.0.1
 
 * Increased tweet length limit to 280 characters.
