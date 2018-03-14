@@ -1,5 +1,9 @@
 # Changelog
 
+## v.0.0.3
+
+* Fixed macOS 10.10 compatibility issues.
+
 ## v.0.0.2
 
 * Supported macOS versions greater or equal to `10.9`.
