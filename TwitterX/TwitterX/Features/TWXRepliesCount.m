@@ -12,6 +12,7 @@
 #import <objc/runtime.h>
 #import "TWXRepliesCount.h"
 #import "TWXRuntime.h"
+#import "NSView+TWX.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -84,11 +85,9 @@ static void *TwitterStatusRepliesCountKey = &TwitterStatusRepliesCountKey;
             repliesTextField.font = [NSFont systemFontOfSize:13.0f];
             repliesTextField.textColor = [[[@"TMTheme" twx_class] performSelector:@selector(currentTheme)] performSelector:@selector(buttonGrayIconColor)];
             [cell addSubview:repliesTextField];
-            [NSLayoutConstraint activateConstraints:@[
-                [repliesTextField.leadingAnchor constraintEqualToAnchor:replyButton.trailingAnchor constant:0.0f],
-                [repliesTextField.centerYAnchor constraintEqualToAnchor:replyButton.centerYAnchor],
-                [repliesTextField.heightAnchor constraintEqualToAnchor:retweetsTextField.heightAnchor]
-            ]];
+            
+            [repliesTextField anchorToAttribute:NSLayoutAttributeTrailing ofView:replyButton fromAttribute:NSLayoutAttributeLeading];
+            [repliesTextField anchorToAttribute:NSLayoutAttributeCenterY ofView:replyButton fromAttribute:NSLayoutAttributeCenterY];
             [repliesTextField setContentHuggingPriority:NSLayoutPriorityRequired forOrientation:NSLayoutConstraintOrientationHorizontal];
             [repliesTextField setContentCompressionResistancePriority:NSLayoutPriorityRequired forOrientation:NSLayoutConstraintOrientationHorizontal];
         }
