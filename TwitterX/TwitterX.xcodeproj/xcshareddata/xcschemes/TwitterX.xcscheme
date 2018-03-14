@@ -62,7 +62,7 @@
          <EnvironmentVariable
             key = "DYLD_INSERT_LIBRARIES"
             value = "${TARGET_BUILD_DIR}/${TARGET_NAME}.framework/Versions/A/${TARGET_NAME}"
-            isEnabled = "NO">
+            isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
       <AdditionalOptions>
