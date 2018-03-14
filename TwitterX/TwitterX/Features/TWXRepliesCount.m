@@ -12,6 +12,7 @@
 #import <objc/runtime.h>
 #import "TWXRepliesCount.h"
 #import "TWXRuntime.h"
+#import "NSView+TWX.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -39,28 +40,28 @@ static void *TwitterStatusRepliesCountKey = &TwitterStatusRepliesCountKey;
 
 - (void)TwitterAPI_v1_1_GET:(NSString *)endpoint parameters:(NSDictionary *)parameters callback:(id)callback {
     NSMutableDictionary *customParameters = [parameters mutableCopy];
-    
-    if ([self isKindOfClass:[@"TwitterAPI" twx_class]] && [endpoint containsString:@"statuses/"]) {
+
+    if ([self isKindOfClass:[@"TwitterAPI" twx_class]] && [endpoint rangeOfString:@"statuses/"].location != NSNotFound) {
         [customParameters setObject:@"iPhone-13" forKey:@"cards_platform"];
         [customParameters setObject:@1 forKey:@"include_reply_count"];
     }
-    
+
     [self TwitterAPI_v1_1_GET:endpoint parameters:customParameters callback:callback];
 }
 
 + (nullable id)TwitterStatus_statusWithDictionary:(NSDictionary *)dictionary {
     id __nullable const status = [self TwitterStatus_statusWithDictionary:dictionary];
-    
+
     if ([NSStringFromClass(self) isEqualToString:@"TwitterStatus"]) {
         objc_setAssociatedObject(status, TwitterStatusRepliesCountKey, dictionary[@"reply_count"], OBJC_ASSOCIATION_COPY);
     }
-    
+
     return status;
 }
 
 - (void)TMNewTimelineStatusCell_setStatus:(id)status {
     [self TMNewTimelineStatusCell_setStatus:status];
-    
+
     if ([self isKindOfClass:[@"TMNewTimelineStatusCell" twx_class]]) {
         NSView *const cell = (NSView *)self;
         NSTextField *__nullable const retweetsTextField = (id)[self performSelector:@selector(retweetTextField)];
@@ -72,7 +73,7 @@ static void *TwitterStatusRepliesCountKey = &TwitterStatusRepliesCountKey;
                 break;
             }
         }
-        
+
         if (repliesTextField == nil && replyButton) {
             repliesTextField = [[TWXRepliesTextField alloc] initWithFrame:NSMakeRect(0.f, 0.f, 0.f, 0.f)];
             repliesTextField.translatesAutoresizingMaskIntoConstraints = NO;
@@ -84,15 +85,13 @@ static void *TwitterStatusRepliesCountKey = &TwitterStatusRepliesCountKey;
             repliesTextField.font = [NSFont systemFontOfSize:13.0f];
             repliesTextField.textColor = [[[@"TMTheme" twx_class] performSelector:@selector(currentTheme)] performSelector:@selector(buttonGrayIconColor)];
             [cell addSubview:repliesTextField];
-            [NSLayoutConstraint activateConstraints:@[
-                [repliesTextField.leadingAnchor constraintEqualToAnchor:replyButton.trailingAnchor constant:0.0f],
-                [repliesTextField.centerYAnchor constraintEqualToAnchor:replyButton.centerYAnchor],
-                [repliesTextField.heightAnchor constraintEqualToAnchor:retweetsTextField.heightAnchor]
-            ]];
+            
+            [repliesTextField anchorToAttribute:NSLayoutAttributeTrailing ofView:replyButton fromAttribute:NSLayoutAttributeLeading];
+            [repliesTextField anchorToAttribute:NSLayoutAttributeCenterY ofView:replyButton fromAttribute:NSLayoutAttributeCenterY];
             [repliesTextField setContentHuggingPriority:NSLayoutPriorityRequired forOrientation:NSLayoutConstraintOrientationHorizontal];
             [repliesTextField setContentCompressionResistancePriority:NSLayoutPriorityRequired forOrientation:NSLayoutConstraintOrientationHorizontal];
         }
-        
+
         NSNumber *__nullable const repliesCount = objc_getAssociatedObject(status, TwitterStatusRepliesCountKey) ?: @(0);
         repliesTextField.stringValue = repliesCount.integerValue > 0 ? repliesCount.stringValue : @"";
     }

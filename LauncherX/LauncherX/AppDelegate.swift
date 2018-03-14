@@ -19,11 +19,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet private var dragAndDropViewController: DragAndDropViewController!
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        // Set full size content view
+        if #available(OSX 10.10, *) {
+            self.mainWindow.styleMask = [self.mainWindow.styleMask, NSWindow.StyleMask.fullSizeContentView]
+        }
+        
+        // Set up drag and drop callback
         self.dragAndDropViewController.didReceiveDragAndDropURL = { [weak self] url in
             self?.twitterX.twitterAppURL = url
             self?.launchTwitterApp()
         }
         
+        // Check for updates and launch Twitter app
         self.twitterX.checkUpdates { [weak self] (isThereUpdate) in
             if isThereUpdate {
                 self?.displayUpdateModal()

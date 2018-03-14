@@ -20,6 +20,8 @@
 		335D38E02038E45C00379A21 /* TwitterX.m in Sources */ = {isa = PBXBuildFile; fileRef = 335D38DF2038E45C00379A21 /* TwitterX.m */; };
 		C18C74F620507003001B0AAC /* TWXDirectMessagesCrash.h in Headers */ = {isa = PBXBuildFile; fileRef = C18C74F420507003001B0AAC /* TWXDirectMessagesCrash.h */; };
 		C18C74F720507003001B0AAC /* TWXDirectMessagesCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = C18C74F520507003001B0AAC /* TWXDirectMessagesCrash.m */; };
+		C1B3282F2059160D00009EA8 /* NSView+TWX.h in Headers */ = {isa = PBXBuildFile; fileRef = C1B3282D2059160D00009EA8 /* NSView+TWX.h */; };
+		C1B328302059160D00009EA8 /* NSView+TWX.m in Sources */ = {isa = PBXBuildFile; fileRef = C1B3282E2059160D00009EA8 /* NSView+TWX.m */; };
 		C1D846F42041BB080016E52D /* TWXRoundedStatusContent.h in Headers */ = {isa = PBXBuildFile; fileRef = C1D846F22041BB080016E52D /* TWXRoundedStatusContent.h */; };
 		C1D846F52041BB080016E52D /* TWXRoundedStatusContent.m in Sources */ = {isa = PBXBuildFile; fileRef = C1D846F32041BB080016E52D /* TWXRoundedStatusContent.m */; };
 		C1D846F82041F5950016E52D /* TWXLightThemeReborn.h in Headers */ = {isa = PBXBuildFile; fileRef = C1D846F62041F5940016E52D /* TWXLightThemeReborn.h */; };
@@ -46,6 +48,8 @@
 		335D38DF2038E45C00379A21 /* TwitterX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterX.m; sourceTree = "<group>"; };
 		C18C74F420507003001B0AAC /* TWXDirectMessagesCrash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWXDirectMessagesCrash.h; sourceTree = "<group>"; };
 		C18C74F520507003001B0AAC /* TWXDirectMessagesCrash.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWXDirectMessagesCrash.m; sourceTree = "<group>"; };
+		C1B3282D2059160D00009EA8 /* NSView+TWX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSView+TWX.h"; sourceTree = "<group>"; };
+		C1B3282E2059160D00009EA8 /* NSView+TWX.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSView+TWX.m"; sourceTree = "<group>"; };
 		C1D846F22041BB080016E52D /* TWXRoundedStatusContent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWXRoundedStatusContent.h; sourceTree = "<group>"; };
 		C1D846F32041BB080016E52D /* TWXRoundedStatusContent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWXRoundedStatusContent.m; sourceTree = "<group>"; };
 		C1D846F62041F5940016E52D /* TWXLightThemeReborn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWXLightThemeReborn.h; sourceTree = "<group>"; };
@@ -132,6 +136,8 @@
 			children = (
 				335D38DB2038DA6100379A21 /* TWXRuntime.h */,
 				335D38DC2038DA6100379A21 /* TWXRuntime.m */,
+				C1B3282D2059160D00009EA8 /* NSView+TWX.h */,
+				C1B3282E2059160D00009EA8 /* NSView+TWX.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -151,6 +157,7 @@
 				335D38DD2038DA6100379A21 /* TWXRuntime.h in Headers */,
 				335D38D320387EF100379A21 /* TWXFeature.h in Headers */,
 				C1D846F42041BB080016E52D /* TWXRoundedStatusContent.h in Headers */,
+				C1B3282F2059160D00009EA8 /* NSView+TWX.h in Headers */,
 				335D38CD20387EE300379A21 /* TwitterX.h in Headers */,
 				335D38D720387EFC00379A21 /* TWXRoundedAvatars.h in Headers */,
 				33075926203D9EF700CAA86C /* TWXEnhancedFullscreen.h in Headers */,
@@ -234,6 +241,7 @@
 				C1D846FD2042B08C0016E52D /* TWXRepliesCount.m in Sources */,
 				335D38DE2038DA6100379A21 /* TWXRuntime.m in Sources */,
 				C1D846F92041F5950016E52D /* TWXLightThemeReborn.m in Sources */,
+				C1B328302059160D00009EA8 /* NSView+TWX.m in Sources */,
 				C1D846F52041BB080016E52D /* TWXRoundedStatusContent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,7 +297,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -338,7 +346,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};
@@ -360,6 +368,7 @@
 				INFOPLIST_FILE = TwitterX/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.twitterx.TwitterX;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -384,6 +393,7 @@
 				INFOPLIST_FILE = TwitterX/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.twitterx.TwitterX;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

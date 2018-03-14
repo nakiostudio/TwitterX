@@ -21,8 +21,8 @@ final class DragAndDropViewController: NSViewController {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func awakeFromNib() {
+        super.awakeFromNib()
         self.setup()
     }
     
