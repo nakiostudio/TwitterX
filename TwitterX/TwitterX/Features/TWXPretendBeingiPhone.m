@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)loadFeature {
     [TWXRuntime exchangeClassMethod:@"userAgent" ofClass:@"TwitterAPI"];
     [TWXRuntime exchangeInstanceMethod:@"setValue:forHTTPHeaderField:" ofClass:@"ABHTTPRequest"];
+    [TWXRuntime exchangeInstanceMethod:@"oAuthConsumerKey" ofClass:@"TwitterAccount"];
+    [TWXRuntime exchangeInstanceMethod:@"oAuthConsumerSecret" ofClass:@"TwitterAccount"];
 }
 
 @end
@@ -45,6 +47,22 @@ NS_ASSUME_NONNULL_BEGIN
     }
     
     [self ABHTTPRequest_setValue:customValue forHTTPHeaderField:field];
+}
+
+- (NSString *)TwitterAccount_oAuthConsumerKey {
+    if (![self isKindOfClass:[@"TwitterAccount" twx_class]]) {
+        return [self TwitterAccount_oAuthConsumerKey];
+    }
+    
+    return @"REPLACE_WITH_CONSUMER_KEY";
+}
+
+- (NSString *)TwitterAccount_oAuthConsumerSecret {
+    if (![self isKindOfClass:[@"TwitterAccount" twx_class]]) {
+        return [self TwitterAccount_oAuthConsumerSecret];
+    }
+    
+    return @"REPLACE_WITH_CONSUMER_SECRET";
 }
 
 @end

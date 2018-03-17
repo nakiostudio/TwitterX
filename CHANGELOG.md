@@ -1,5 +1,10 @@
 # Changelog
 
+## v.0.1.0
+
+* Fixed authentication. For this change to work you may need to
+sign out and sign in again.
+
 ## v.0.0.3
 
 * Fixed macOS 10.10 compatibility issues.
