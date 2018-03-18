@@ -53,16 +53,16 @@ NS_ASSUME_NONNULL_BEGIN
     if (![self isKindOfClass:[@"TwitterAccount" twx_class]]) {
         return [self TwitterAccount_oAuthConsumerKey];
     }
-    
-    return @"REPLACE_WITH_CONSUMER_KEY";
+
+    return [[NSProcessInfo processInfo].environment objectForKey:@"TWITTER_CONSUMER_KEY"];
 }
 
 - (NSString *)TwitterAccount_oAuthConsumerSecret {
     if (![self isKindOfClass:[@"TwitterAccount" twx_class]]) {
         return [self TwitterAccount_oAuthConsumerSecret];
     }
-    
-    return @"REPLACE_WITH_CONSUMER_SECRET";
+
+    return [[NSProcessInfo processInfo].environment objectForKey:@"TWITTER_CONSUMER_SECRET"];
 }
 
 @end

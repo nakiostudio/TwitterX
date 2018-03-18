@@ -12,7 +12,11 @@ import AppKit
 
 final class TwitterX {
     
-    private static let twitterAppURLKey: String = "twitterAppURL"
+    private struct Key {
+        static let twitterAppURL: String = "twitterAppURL"
+        static let twitterConsumerKey: String = "twitterConsumerKey"
+        static let twitterConsumerSecret: String = "twitterConsumerSecret"
+    }
     private static let latestVersionURL: URL = URL(string: "https://raw.githubusercontent.com/nakiostudio/TwitterX/master/version")!
     
     private let urlSession: URLSession
@@ -22,14 +26,28 @@ final class TwitterX {
     
     var twitterAppURL: URL? {
         didSet {
-            userDefaults.set(twitterAppURL, forKey: TwitterX.twitterAppURLKey)
+            userDefaults.set(self.twitterAppURL, forKey: Key.twitterAppURL)
+        }
+    }
+    
+    var twitterConsumerKey: String? {
+        didSet {
+            userDefaults.set(self.twitterConsumerKey, forKey: Key.twitterConsumerKey)
+        }
+    }
+    
+    var twitterConsumerSecret: String? {
+        didSet {
+            userDefaults.set(self.twitterConsumerSecret, forKey: Key.twitterConsumerSecret)
         }
     }
     
     init(urlSession: URLSession = .shared,  userDefaults: UserDefaults = .standard) {
         self.urlSession = urlSession
         self.userDefaults = userDefaults
-        self.twitterAppURL = userDefaults.url(forKey: TwitterX.twitterAppURLKey)
+        self.twitterAppURL = userDefaults.url(forKey: Key.twitterAppURL)
+        self.twitterConsumerKey = userDefaults.string(forKey: Key.twitterConsumerKey)
+        self.twitterConsumerSecret = userDefaults.string(forKey: Key.twitterConsumerSecret)
         let twitterXFrameworkPath: String = Bundle.main.path(forResource: "TwitterX", ofType: "framework")! + "/Versions/A/TwitterX"
         self.twitterXFrameworkURL = URL(fileURLWithPath: twitterXFrameworkPath)
         self.versionNumber = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
@@ -38,16 +56,21 @@ final class TwitterX {
     // MARK: - Public
     
     func launchTwitterApp(completion: (Bool, Error?) -> Void) {
-        guard let twitterAppURL = self.twitterAppURL else {
-            completion(false, nil)
-            return
+        guard let twitterAppURL = self.twitterAppURL,
+            let twitterConsumerKey = self.twitterConsumerKey,
+            let twitterConsumerSecret = self.twitterConsumerSecret else {
+                completion(false, nil)
+                return
         }
         
         do {
             try NSWorkspace.shared.launchApplication(
                 at: twitterAppURL,
                 options: [],
-                configuration: [.environment: ["DYLD_INSERT_LIBRARIES": self.twitterXFrameworkURL.path]]
+                configuration: [.environment: [
+                    "DYLD_INSERT_LIBRARIES": self.twitterXFrameworkURL.path,
+                    "TWITTER_CONSUMER_KEY": twitterConsumerKey,
+                    "TWITTER_CONSUMER_SECRET": twitterConsumerSecret]]
             )
             completion(true, nil)
         } catch let error {
