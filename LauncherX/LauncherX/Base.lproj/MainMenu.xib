@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
-        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -13,12 +12,7 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="LauncherX" customModuleProvider="target">
-            <connections>
-                <outlet property="dragAndDropViewController" destination="3nX-K4-Ia9" id="xNi-Jo-Cnb"/>
-                <outlet property="mainWindow" destination="TFC-SP-8im" id="hFi-mP-bRo"/>
-            </connections>
-        </customObject>
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="LauncherX" customModuleProvider="target"/>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
@@ -80,71 +74,5 @@
                 </menuItem>
             </items>
         </menu>
-        <window title="LauncherX" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="TFC-SP-8im">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
-            <rect key="contentRect" x="163" y="205" width="368" height="230"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-            <view key="contentView" id="yD1-d5-gka">
-                <rect key="frame" x="0.0" y="0.0" width="368" height="230"/>
-                <autoresizingMask key="autoresizingMask"/>
-                <subviews>
-                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="iRW-hA-HVc">
-                        <rect key="frame" x="0.0" y="0.0" width="368" height="230"/>
-                        <subviews>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CDn-6X-2st">
-                                <rect key="frame" x="97" y="28" width="175" height="175"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="175" id="HHf-5H-OPS"/>
-                                    <constraint firstAttribute="height" constant="175" id="fbv-Zj-aYf"/>
-                                </constraints>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="rocket-bg" id="pd2-pf-vXh"/>
-                            </imageView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="T0t-TM-Gza">
-                                <rect key="frame" x="18" y="106" width="332" height="19"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="19" id="P1b-6b-oAl"/>
-                                </constraints>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Drag and drop here the Twitter app" id="zla-3V-mXQ">
-                                    <font key="font" metaFont="system" size="16"/>
-                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="aN3-vg-o0e" customClass="DragAndDropView" customModule="LauncherX" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="368" height="230"/>
-                            </customView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="CDn-6X-2st" firstAttribute="centerY" secondItem="iRW-hA-HVc" secondAttribute="centerY" id="2Qf-Jn-S2X"/>
-                            <constraint firstItem="T0t-TM-Gza" firstAttribute="centerY" secondItem="iRW-hA-HVc" secondAttribute="centerY" id="47l-NU-F4W"/>
-                            <constraint firstAttribute="trailing" secondItem="T0t-TM-Gza" secondAttribute="trailing" constant="20" id="8Kt-QR-c0g"/>
-                            <constraint firstAttribute="trailing" secondItem="aN3-vg-o0e" secondAttribute="trailing" id="Fgb-rE-Sg7"/>
-                            <constraint firstItem="aN3-vg-o0e" firstAttribute="leading" secondItem="iRW-hA-HVc" secondAttribute="leading" id="GwT-k9-UkJ"/>
-                            <constraint firstAttribute="bottom" secondItem="aN3-vg-o0e" secondAttribute="bottom" id="KrF-Vk-dzR"/>
-                            <constraint firstItem="CDn-6X-2st" firstAttribute="centerX" secondItem="iRW-hA-HVc" secondAttribute="centerX" id="T2z-9e-pnW"/>
-                            <constraint firstItem="aN3-vg-o0e" firstAttribute="top" secondItem="iRW-hA-HVc" secondAttribute="top" id="cyj-Yh-NNn"/>
-                            <constraint firstItem="T0t-TM-Gza" firstAttribute="leading" secondItem="iRW-hA-HVc" secondAttribute="leading" constant="20" id="oA3-dn-2DR"/>
-                        </constraints>
-                    </customView>
-                </subviews>
-                <constraints>
-                    <constraint firstItem="iRW-hA-HVc" firstAttribute="top" secondItem="yD1-d5-gka" secondAttribute="top" id="7v7-AT-Acx"/>
-                    <constraint firstItem="iRW-hA-HVc" firstAttribute="leading" secondItem="yD1-d5-gka" secondAttribute="leading" id="VR6-pN-RF6"/>
-                    <constraint firstAttribute="trailing" secondItem="iRW-hA-HVc" secondAttribute="trailing" id="bbM-vb-wTi"/>
-                    <constraint firstAttribute="bottom" secondItem="iRW-hA-HVc" secondAttribute="bottom" id="zZY-fZ-sTe"/>
-                </constraints>
-            </view>
-            <point key="canvasLocation" x="39" y="450"/>
-        </window>
-        <viewController id="3nX-K4-Ia9" customClass="DragAndDropViewController" customModule="LauncherX" customModuleProvider="target">
-            <connections>
-                <outlet property="backgroundImageView" destination="CDn-6X-2st" id="MDu-Rf-rBe"/>
-                <outlet property="highlightView" destination="aN3-vg-o0e" id="Fwc-NV-TPo"/>
-                <outlet property="view" destination="iRW-hA-HVc" id="8H6-0j-zHn"/>
-            </connections>
-        </viewController>
     </objects>
-    <resources>
-        <image name="rocket-bg" width="350" height="350"/>
-    </resources>
 </document>

@@ -30,24 +30,10 @@ final class TwitterX {
         }
     }
     
-    var twitterConsumerKey: String? {
-        didSet {
-            userDefaults.set(self.twitterConsumerKey, forKey: Key.twitterConsumerKey)
-        }
-    }
-    
-    var twitterConsumerSecret: String? {
-        didSet {
-            userDefaults.set(self.twitterConsumerSecret, forKey: Key.twitterConsumerSecret)
-        }
-    }
-    
     init(urlSession: URLSession = .shared,  userDefaults: UserDefaults = .standard) {
         self.urlSession = urlSession
         self.userDefaults = userDefaults
-        self.twitterAppURL = userDefaults.url(forKey: Key.twitterAppURL)
-        self.twitterConsumerKey = userDefaults.string(forKey: Key.twitterConsumerKey)
-        self.twitterConsumerSecret = userDefaults.string(forKey: Key.twitterConsumerSecret)
+        self.twitterAppURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.twitter.twitter-mac")
         let twitterXFrameworkPath: String = Bundle.main.path(forResource: "TwitterX", ofType: "framework")! + "/Versions/A/TwitterX"
         self.twitterXFrameworkURL = URL(fileURLWithPath: twitterXFrameworkPath)
         self.versionNumber = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
@@ -56,9 +42,7 @@ final class TwitterX {
     // MARK: - Public
     
     func launchTwitterApp(completion: (Bool, Error?) -> Void) {
-        guard let twitterAppURL = self.twitterAppURL,
-            let twitterConsumerKey = self.twitterConsumerKey,
-            let twitterConsumerSecret = self.twitterConsumerSecret else {
+        guard let twitterAppURL = self.twitterAppURL else {
                 completion(false, nil)
                 return
         }
@@ -67,10 +51,7 @@ final class TwitterX {
             try NSWorkspace.shared.launchApplication(
                 at: twitterAppURL,
                 options: [],
-                configuration: [.environment: [
-                    "DYLD_INSERT_LIBRARIES": self.twitterXFrameworkURL.path,
-                    "TWITTER_CONSUMER_KEY": twitterConsumerKey,
-                    "TWITTER_CONSUMER_SECRET": twitterConsumerSecret]]
+                configuration: [.environment: ["DYLD_INSERT_LIBRARIES": self.twitterXFrameworkURL.path]]
             )
             completion(true, nil)
         } catch let error {

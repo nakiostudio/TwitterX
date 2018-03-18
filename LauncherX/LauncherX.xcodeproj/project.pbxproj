@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C1A59BD02053FB2D003189A1 /* DragAndDropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A59BCF2053FB2D003189A1 /* DragAndDropViewController.swift */; };
-		C1A59BD220540F53003189A1 /* DragAndDropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A59BD120540F53003189A1 /* DragAndDropView.swift */; };
 		C1A59BD420542686003189A1 /* TwitterX.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A59BD320542686003189A1 /* TwitterX.swift */; };
 		C1DEB0332053195700137EAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DEB0322053195700137EAA /* AppDelegate.swift */; };
 		C1DEB0352053195700137EAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1DEB0342053195700137EAA /* Assets.xcassets */; };
@@ -30,8 +28,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		C1A59BCF2053FB2D003189A1 /* DragAndDropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragAndDropViewController.swift; sourceTree = "<group>"; };
-		C1A59BD120540F53003189A1 /* DragAndDropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragAndDropView.swift; sourceTree = "<group>"; };
 		C1A59BD320542686003189A1 /* TwitterX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterX.swift; sourceTree = "<group>"; };
 		C1DEB02F2053195700137EAA /* LauncherX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LauncherX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1DEB0322053195700137EAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -53,15 +49,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C1A59BCE2053FB1C003189A1 /* DragAndDrop */ = {
-			isa = PBXGroup;
-			children = (
-				C1A59BD120540F53003189A1 /* DragAndDropView.swift */,
-				C1A59BCF2053FB2D003189A1 /* DragAndDropViewController.swift */,
-			);
-			path = DragAndDrop;
-			sourceTree = "<group>";
-		};
 		C1DEB0262053195700137EAA = {
 			isa = PBXGroup;
 			children = (
@@ -82,7 +69,6 @@
 		C1DEB0312053195700137EAA /* LauncherX */ = {
 			isa = PBXGroup;
 			children = (
-				C1A59BCE2053FB1C003189A1 /* DragAndDrop */,
 				C1A59BD320542686003189A1 /* TwitterX.swift */,
 				C1DEB0322053195700137EAA /* AppDelegate.swift */,
 				C1DEB0342053195700137EAA /* Assets.xcassets */,
@@ -173,8 +159,6 @@
 			files = (
 				C1A59BD420542686003189A1 /* TwitterX.swift in Sources */,
 				C1DEB0332053195700137EAA /* AppDelegate.swift in Sources */,
-				C1A59BD220540F53003189A1 /* DragAndDropView.swift in Sources */,
-				C1A59BD02053FB2D003189A1 /* DragAndDropViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
