@@ -15,6 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 @implementation NSView (TWX)
 
 - (void)anchorToAttribute:(NSLayoutAttribute)toAttr ofView:(NSView *)view fromAttribute:(NSLayoutAttribute)fromAttr {
+    [self anchorToAttribute:toAttr ofView:view fromAttribute:fromAttr constant:0.f];
+}
+
+- (void)anchorToAttribute:(NSLayoutAttribute)toAttr ofView:(NSView *)view fromAttribute:(NSLayoutAttribute)fromAttr constant:(CGFloat)constant {
     NSParameterAssert(view);
     
     NSLayoutConstraint *const constraint =
@@ -25,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
      toItem:view
      attribute:toAttr
      multiplier:1.0f
-     constant:0.0f];
+     constant:constant];
     
     if (@available(macOS 10.10, *)) {
         [NSLayoutConstraint activateConstraints:@[constraint]];
@@ -34,6 +38,25 @@ NS_ASSUME_NONNULL_BEGIN
     
     NSView *const ownerView = (fromAttr == NSLayoutAttributeWidth || fromAttr == NSLayoutAttributeHeight) ? self : self.superview;
     [ownerView addConstraint:constraint];
+}
+
+- (void)anchorDimenstionAttribute:(NSLayoutAttribute)attr toConstant:(CGFloat)constant {
+    NSLayoutConstraint *const constraint =
+    [NSLayoutConstraint
+     constraintWithItem:self
+     attribute:attr
+     relatedBy:NSLayoutRelationEqual
+     toItem:nil
+     attribute:attr
+     multiplier:1.0f
+     constant:constant];
+    
+    if (@available(macOS 10.10, *)) {
+        [NSLayoutConstraint activateConstraints:@[constraint]];
+        return;
+    }
+    
+    [self addConstraint:constraint];
 }
 
 @end
