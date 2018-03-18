@@ -141,6 +141,7 @@ static void *TWXConsumerTextFieldsDelegateKey = &TWXConsumerTextFieldsDelegateKe
     [consumerSecretLabel anchorToAttribute:NSLayoutAttributeLastBaseline ofView:consumerSecretTextField fromAttribute:NSLayoutAttributeLastBaseline];
     
     // Anchor existing content
+    view.frame = NSMakeRect(0.f, 0.f, 481.f, 430.f);
     for (NSLayoutConstraint *constraint in view.constraints) {
         if ([constraint.firstItem isKindOfClass:[NSPopUpButton class]] && constraint.firstAttribute == NSLayoutAttributeTop && constraint.secondItem == view) {
             [view removeConstraint:constraint];
