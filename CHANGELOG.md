@@ -1,5 +1,12 @@
 # Changelog
 
+## v.0.1.1
+
+* Drag and drop no longer needed as the Twitter app is
+automatically detected.
+* OAuth consumer key and secret configurable from the
+preferences menu.
+
 ## v.0.1.0
 
 * Fixed authentication. For this change to work you may need to

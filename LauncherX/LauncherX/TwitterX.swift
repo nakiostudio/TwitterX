@@ -12,24 +12,18 @@ import AppKit
 
 final class TwitterX {
     
-    private static let twitterAppURLKey: String = "twitterAppURL"
     private static let latestVersionURL: URL = URL(string: "https://raw.githubusercontent.com/nakiostudio/TwitterX/master/version")!
     
     private let urlSession: URLSession
     private let userDefaults: UserDefaults
+    private let twitterAppURL: URL?
     private let twitterXFrameworkURL: URL!
     private let versionNumber: String!
-    
-    var twitterAppURL: URL? {
-        didSet {
-            userDefaults.set(twitterAppURL, forKey: TwitterX.twitterAppURLKey)
-        }
-    }
     
     init(urlSession: URLSession = .shared,  userDefaults: UserDefaults = .standard) {
         self.urlSession = urlSession
         self.userDefaults = userDefaults
-        self.twitterAppURL = userDefaults.url(forKey: TwitterX.twitterAppURLKey)
+        self.twitterAppURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.twitter.twitter-mac")
         let twitterXFrameworkPath: String = Bundle.main.path(forResource: "TwitterX", ofType: "framework")! + "/Versions/A/TwitterX"
         self.twitterXFrameworkURL = URL(fileURLWithPath: twitterXFrameworkPath)
         self.versionNumber = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
@@ -51,7 +45,6 @@ final class TwitterX {
             )
             completion(true, nil)
         } catch let error {
-            self.twitterAppURL = nil
             completion(false, error)
         }
     }

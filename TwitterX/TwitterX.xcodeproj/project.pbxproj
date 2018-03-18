@@ -28,8 +28,8 @@
 		C1D846F92041F5950016E52D /* TWXLightThemeReborn.m in Sources */ = {isa = PBXBuildFile; fileRef = C1D846F72041F5940016E52D /* TWXLightThemeReborn.m */; };
 		C1D846FC2042B08C0016E52D /* TWXRepliesCount.h in Headers */ = {isa = PBXBuildFile; fileRef = C1D846FA2042B08C0016E52D /* TWXRepliesCount.h */; };
 		C1D846FD2042B08C0016E52D /* TWXRepliesCount.m in Sources */ = {isa = PBXBuildFile; fileRef = C1D846FB2042B08C0016E52D /* TWXRepliesCount.m */; };
-		C1D84700204358FE0016E52D /* TWXPretendBeingiPhone.h in Headers */ = {isa = PBXBuildFile; fileRef = C1D846FE204358FE0016E52D /* TWXPretendBeingiPhone.h */; };
-		C1D84701204358FE0016E52D /* TWXPretendBeingiPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = C1D846FF204358FE0016E52D /* TWXPretendBeingiPhone.m */; };
+		C1D84700204358FE0016E52D /* TWXConsumerKeysOverride.h in Headers */ = {isa = PBXBuildFile; fileRef = C1D846FE204358FE0016E52D /* TWXConsumerKeysOverride.h */; };
+		C1D84701204358FE0016E52D /* TWXConsumerKeysOverride.m in Sources */ = {isa = PBXBuildFile; fileRef = C1D846FF204358FE0016E52D /* TWXConsumerKeysOverride.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,8 +56,8 @@
 		C1D846F72041F5940016E52D /* TWXLightThemeReborn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWXLightThemeReborn.m; sourceTree = "<group>"; };
 		C1D846FA2042B08C0016E52D /* TWXRepliesCount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWXRepliesCount.h; sourceTree = "<group>"; };
 		C1D846FB2042B08C0016E52D /* TWXRepliesCount.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWXRepliesCount.m; sourceTree = "<group>"; };
-		C1D846FE204358FE0016E52D /* TWXPretendBeingiPhone.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWXPretendBeingiPhone.h; sourceTree = "<group>"; };
-		C1D846FF204358FE0016E52D /* TWXPretendBeingiPhone.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWXPretendBeingiPhone.m; sourceTree = "<group>"; };
+		C1D846FE204358FE0016E52D /* TWXConsumerKeysOverride.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWXConsumerKeysOverride.h; sourceTree = "<group>"; };
+		C1D846FF204358FE0016E52D /* TWXConsumerKeysOverride.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWXConsumerKeysOverride.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,8 +111,8 @@
 				C1D846F32041BB080016E52D /* TWXRoundedStatusContent.m */,
 				C1D846F62041F5940016E52D /* TWXLightThemeReborn.h */,
 				C1D846F72041F5940016E52D /* TWXLightThemeReborn.m */,
-				C1D846FE204358FE0016E52D /* TWXPretendBeingiPhone.h */,
-				C1D846FF204358FE0016E52D /* TWXPretendBeingiPhone.m */,
+				C1D846FE204358FE0016E52D /* TWXConsumerKeysOverride.h */,
+				C1D846FF204358FE0016E52D /* TWXConsumerKeysOverride.m */,
 				C1D846FA2042B08C0016E52D /* TWXRepliesCount.h */,
 				C1D846FB2042B08C0016E52D /* TWXRepliesCount.m */,
 				C18C74F420507003001B0AAC /* TWXDirectMessagesCrash.h */,
@@ -151,7 +151,7 @@
 			files = (
 				C1D846FC2042B08C0016E52D /* TWXRepliesCount.h in Headers */,
 				335D38D520387EF600379A21 /* TWXCharactersLimit.h in Headers */,
-				C1D84700204358FE0016E52D /* TWXPretendBeingiPhone.h in Headers */,
+				C1D84700204358FE0016E52D /* TWXConsumerKeysOverride.h in Headers */,
 				C18C74F620507003001B0AAC /* TWXDirectMessagesCrash.h in Headers */,
 				C1D846F82041F5950016E52D /* TWXLightThemeReborn.h in Headers */,
 				335D38DD2038DA6100379A21 /* TWXRuntime.h in Headers */,
@@ -236,7 +236,7 @@
 				335D38D820387EFF00379A21 /* TWXRoundedAvatars.m in Sources */,
 				C18C74F720507003001B0AAC /* TWXDirectMessagesCrash.m in Sources */,
 				33075927203D9EF700CAA86C /* TWXEnhancedFullscreen.m in Sources */,
-				C1D84701204358FE0016E52D /* TWXPretendBeingiPhone.m in Sources */,
+				C1D84701204358FE0016E52D /* TWXConsumerKeysOverride.m in Sources */,
 				335D38D620387EF900379A21 /* TWXCharactersLimit.m in Sources */,
 				C1D846FD2042B08C0016E52D /* TWXRepliesCount.m in Sources */,
 				335D38DE2038DA6100379A21 /* TWXRuntime.m in Sources */,
