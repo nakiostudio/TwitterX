@@ -12,23 +12,13 @@ import AppKit
 
 final class TwitterX {
     
-    private struct Key {
-        static let twitterAppURL: String = "twitterAppURL"
-        static let twitterConsumerKey: String = "twitterConsumerKey"
-        static let twitterConsumerSecret: String = "twitterConsumerSecret"
-    }
     private static let latestVersionURL: URL = URL(string: "https://raw.githubusercontent.com/nakiostudio/TwitterX/master/version")!
     
     private let urlSession: URLSession
     private let userDefaults: UserDefaults
+    private let twitterAppURL: URL?
     private let twitterXFrameworkURL: URL!
     private let versionNumber: String!
-    
-    var twitterAppURL: URL? {
-        didSet {
-            userDefaults.set(self.twitterAppURL, forKey: Key.twitterAppURL)
-        }
-    }
     
     init(urlSession: URLSession = .shared,  userDefaults: UserDefaults = .standard) {
         self.urlSession = urlSession
@@ -43,8 +33,8 @@ final class TwitterX {
     
     func launchTwitterApp(completion: (Bool, Error?) -> Void) {
         guard let twitterAppURL = self.twitterAppURL else {
-                completion(false, nil)
-                return
+            completion(false, nil)
+            return
         }
         
         do {
@@ -55,7 +45,6 @@ final class TwitterX {
             )
             completion(true, nil)
         } catch let error {
-            self.twitterAppURL = nil
             completion(false, error)
         }
     }
