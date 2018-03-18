@@ -10,7 +10,7 @@
 
 #import <AppKit/AppKit.h>
 #import <objc/runtime.h>
-#import "TWXPretendBeingiPhone.h"
+#import "TWXConsumerKeysOverride.h"
 #import "TWXRuntime.h"
 #import "NSView+TWX.h"
 
@@ -24,7 +24,7 @@ static void *TWXConsumerTextFieldsDelegateKey = &TWXConsumerTextFieldsDelegateKe
 
 @end
 
-@implementation TWXPretendBeingiPhone
+@implementation TWXConsumerKeysOverride
 
 + (void)loadFeature {
     [TWXRuntime exchangeClassMethod:@"userAgent" ofClass:@"TwitterAPI"];

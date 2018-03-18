@@ -13,7 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TWXPretendBeingiPhone: NSObject <TWXFeature>
+@interface TWXConsumerKeysOverride: NSObject <TWXFeature>
 
 @end
 

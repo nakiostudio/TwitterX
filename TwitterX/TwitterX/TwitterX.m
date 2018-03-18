@@ -14,7 +14,7 @@
 #import "TWXEnhancedFullscreen.h"
 #import "TWXRoundedStatusContent.h"
 #import "TWXLightThemeReborn.h"
-#import "TWXPretendBeingiPhone.h"
+#import "TWXConsumerKeysOverride.h"
 #import "TWXRepliesCount.h"
 #import "TWXDirectMessagesCrash.h"
 
@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
     [TWXEnhancedFullscreen loadFeature];
     [TWXRoundedStatusContent loadFeature];
     [TWXLightThemeReborn loadFeature];
-    [TWXPretendBeingiPhone loadFeature];
+    [TWXConsumerKeysOverride loadFeature];
     [TWXRepliesCount loadFeature];
     [TWXDirectMessagesCrash loadFeature];
 }
