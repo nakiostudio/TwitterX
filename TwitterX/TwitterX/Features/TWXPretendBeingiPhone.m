@@ -9,11 +9,20 @@
 // SOFTWARE.
 
 #import <AppKit/AppKit.h>
+#import <objc/runtime.h>
 #import "TWXPretendBeingiPhone.h"
 #import "TWXRuntime.h"
 #import "NSView+TWX.h"
 
 NS_ASSUME_NONNULL_BEGIN
+
+NSString *const TWXOAuthConsumerKeyDefaultsKey = @"TWXOAuthConsumerKeyDefaults";
+NSString *const TWXOAuthConsumerSecretDefaultsKey = @"TWXOAuthConsumerSecretDefaults";
+static void *TWXConsumerTextFieldsDelegateKey = &TWXConsumerTextFieldsDelegateKey;
+
+@interface TWXConsumerTextFieldsDelegate: NSObject <NSTextFieldDelegate>
+
+@end
 
 @implementation TWXPretendBeingiPhone
 
@@ -57,7 +66,7 @@ NS_ASSUME_NONNULL_BEGIN
         return [self TwitterAccount_oAuthConsumerKey];
     }
 
-    return [[NSProcessInfo processInfo].environment objectForKey:@"TWITTER_CONSUMER_KEY"];
+    return [[NSUserDefaults standardUserDefaults] stringForKey:TWXOAuthConsumerKeyDefaultsKey] ?: [self TwitterAccount_oAuthConsumerKey];
 }
 
 - (NSString *)TwitterAccount_oAuthConsumerSecret {
@@ -65,7 +74,7 @@ NS_ASSUME_NONNULL_BEGIN
         return [self TwitterAccount_oAuthConsumerSecret];
     }
 
-    return [[NSProcessInfo processInfo].environment objectForKey:@"TWITTER_CONSUMER_SECRET"];
+    return [[NSUserDefaults standardUserDefaults] stringForKey:TWXOAuthConsumerSecretDefaultsKey] ?: [self TwitterAccount_oAuthConsumerSecret];
 }
 
 - (void)TweetiePreferencesWindowController_setGeneralView:(NSView *)view {
@@ -74,9 +83,15 @@ NS_ASSUME_NONNULL_BEGIN
         return;
     }
     
+    TWXConsumerTextFieldsDelegate *const delegate = [[TWXConsumerTextFieldsDelegate alloc] init];
+    objc_setAssociatedObject(self, TWXConsumerTextFieldsDelegateKey, delegate, OBJC_ASSOCIATION_RETAIN);
+    
     // Consumer Key TextField
     NSTextField *const consumerKeyTextField = [[NSTextField alloc] initWithFrame:NSMakeRect(0.f, 0.f, 0.f, 0.f)];
     consumerKeyTextField.translatesAutoresizingMaskIntoConstraints = NO;
+    consumerKeyTextField.stringValue = [[NSUserDefaults standardUserDefaults] stringForKey:TWXOAuthConsumerKeyDefaultsKey] ?: @"";
+    consumerKeyTextField.tag = 0;
+    consumerKeyTextField.delegate = delegate;
     [view addSubview:consumerKeyTextField];
     
     [consumerKeyTextField anchorDimenstionAttribute:NSLayoutAttributeWidth toConstant:185.f];
@@ -101,6 +116,9 @@ NS_ASSUME_NONNULL_BEGIN
     // Consumer Secret TextField
     NSTextField *const consumerSecretTextField = [[NSTextField alloc] initWithFrame:NSMakeRect(0.f, 0.f, 0.f, 0.f)];
     consumerSecretTextField.translatesAutoresizingMaskIntoConstraints = NO;
+    consumerSecretTextField.stringValue = [[NSUserDefaults standardUserDefaults] stringForKey:TWXOAuthConsumerSecretDefaultsKey] ?: @"";
+    consumerSecretTextField.tag = 1;
+    consumerSecretTextField.delegate = delegate;
     [view addSubview:consumerSecretTextField];
     
     [consumerSecretTextField anchorDimenstionAttribute:NSLayoutAttributeWidth toConstant:185.f];
@@ -132,6 +150,16 @@ NS_ASSUME_NONNULL_BEGIN
     }
     
     [self TweetiePreferencesWindowController_setGeneralView:view];
+}
+
+@end
+
+@implementation TWXConsumerTextFieldsDelegate
+
+- (BOOL)control:(NSControl *)control textShouldEndEditing:(NSText *)fieldEditor {
+    NSString *const defaultsKey = control.tag == 0 ? TWXOAuthConsumerKeyDefaultsKey : TWXOAuthConsumerSecretDefaultsKey;
+    [[NSUserDefaults standardUserDefaults] setObject:fieldEditor.string forKey:defaultsKey];
+    return YES;
 }
 
 @end
