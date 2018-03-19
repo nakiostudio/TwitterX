@@ -1,7 +1,7 @@
 # [![TwitterX](/README/logo.png)](#)
 
 An educational project aiming to maintain Twitter for macOS working while adding new features...
-All this, by injecting code into the official binary.
+All this by injecting code into the official binary.
 
 <h3 align="center">
 <img width="650px" src="/README/screenshot.png"/>
@@ -21,13 +21,10 @@ For this project to work you need to have Twitter for macOS in your computer. Tw
 application from the macOS AppStore but if you ever installed the application it will still be
 available under the **purchases** section of the AppStore.
 
-TwitterX is a framework that once it is loaded modifies the application behaviour on runtime. This
+TwitterX is a framework that once it is loaded modifies the application behaviour at runtime. This
 project provides **LauncherX**, an application that eases the task of loading TwitterX.
 
 [Download LauncherX](https://github.com/nakiostudio/TwitterX/releases)
-
-Drag the Twitter application and drop it into LauncherX, it will launch the modified version of the
-Twitter app. Next time you execute LauncherX it will automatically run the hack.
 
 If you want to run the unmodified version of Twitter simply open the Twitter application instead of
 LauncherX.
