@@ -98,15 +98,10 @@ static void *TWXConsumerTextFieldsDelegateKey = &TWXConsumerTextFieldsDelegateKe
     [consumerKeyTextField anchorToAttribute:NSLayoutAttributeTrailing ofView:view fromAttribute:NSLayoutAttributeTrailing constant:-94.f];
     [consumerKeyTextField anchorToAttribute:NSLayoutAttributeTop ofView:view fromAttribute:NSLayoutAttributeTop constant: 27.0];
     
-    NSTextField *const consumerKeyLabel = [[NSTextField alloc] initWithFrame:NSMakeRect(0.f, 0.f, 0.f, 0.f)];
+    NSTextField *const consumerKeyLabel = [[self class] createLabel];
     consumerKeyLabel.translatesAutoresizingMaskIntoConstraints = NO;
     consumerKeyLabel.stringValue = @"OAuth consumer key:";
     consumerKeyLabel.alignment = NSRightTextAlignment;
-    consumerKeyLabel.drawsBackground = NO;
-    consumerKeyLabel.selectable = NO;
-    consumerKeyLabel.bordered = NO;
-    consumerKeyLabel.editable = NO;
-    consumerKeyLabel.bezeled = NO;
     [view addSubview:consumerKeyLabel];
     
     [consumerKeyLabel anchorToAttribute:NSLayoutAttributeLeading ofView:view fromAttribute:NSLayoutAttributeLeading constant:20.f];
@@ -125,32 +120,52 @@ static void *TWXConsumerTextFieldsDelegateKey = &TWXConsumerTextFieldsDelegateKe
     [consumerSecretTextField anchorToAttribute:NSLayoutAttributeTrailing ofView:view fromAttribute:NSLayoutAttributeTrailing constant:-94.f];
     [consumerSecretTextField anchorToAttribute:NSLayoutAttributeBottom ofView:consumerKeyTextField fromAttribute:NSLayoutAttributeTop constant:10.f];
     
-    NSTextField *const consumerSecretLabel = [[NSTextField alloc] initWithFrame:NSMakeRect(0.f, 0.f, 0.f, 0.f)];
+    NSTextField *const consumerSecretLabel = [[self class] createLabel];
     consumerSecretLabel.translatesAutoresizingMaskIntoConstraints = NO;
     consumerSecretLabel.stringValue = @"OAuth consumer secret:";
     consumerSecretLabel.alignment = NSRightTextAlignment;
-    consumerSecretLabel.drawsBackground = NO;
-    consumerSecretLabel.selectable = NO;
-    consumerSecretLabel.bordered = NO;
-    consumerSecretLabel.editable = NO;
-    consumerSecretLabel.bezeled = NO;
     [view addSubview:consumerSecretLabel];
     
     [consumerSecretLabel anchorToAttribute:NSLayoutAttributeLeading ofView:view fromAttribute:NSLayoutAttributeLeading constant:20.f];
     [consumerSecretLabel anchorToAttribute:NSLayoutAttributeLeading ofView:consumerSecretTextField fromAttribute:NSLayoutAttributeTrailing constant:-9.f];
     [consumerSecretLabel anchorToAttribute:NSLayoutAttributeLastBaseline ofView:consumerSecretTextField fromAttribute:NSLayoutAttributeLastBaseline];
     
+    // Info
+    NSTextField *const infoLabel = [[self class] createLabel];
+    infoLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    infoLabel.stringValue = @"(requires re-authentication if changed)";
+    infoLabel.font = [NSFont systemFontOfSize:9.f];
+    infoLabel.alphaValue = 0.48f;
+    [view addSubview:infoLabel];
+    
+    [infoLabel anchorToAttribute:NSLayoutAttributeLeading ofView:consumerSecretTextField fromAttribute:NSLayoutAttributeLeading];
+    [infoLabel anchorToAttribute:NSLayoutAttributeTrailing ofView:consumerSecretTextField fromAttribute:NSLayoutAttributeTrailing];
+    [infoLabel anchorToAttribute:NSLayoutAttributeBottom ofView:consumerSecretTextField fromAttribute:NSLayoutAttributeTop constant:2.f];
+    
     // Anchor existing content
-    view.frame = NSMakeRect(0.f, 0.f, 481.f, 430.f);
+    view.frame = NSMakeRect(0.f, 0.f, 481.f, 444.f);
     for (NSLayoutConstraint *constraint in view.constraints) {
         if ([constraint.firstItem isKindOfClass:[NSPopUpButton class]] && constraint.firstAttribute == NSLayoutAttributeTop && constraint.secondItem == view) {
             [view removeConstraint:constraint];
-            [constraint.firstItem anchorToAttribute:NSLayoutAttributeBottom ofView:consumerSecretTextField fromAttribute:NSLayoutAttributeTop constant:20.f];
+            [constraint.firstItem anchorToAttribute:NSLayoutAttributeBottom ofView:infoLabel fromAttribute:NSLayoutAttributeTop constant:20.f];
             break;
         }
     }
     
     [self TweetiePreferencesWindowController_setGeneralView:view];
+}
+
+#pragma mark - Static
+
++ (NSTextField *)createLabel {
+    NSTextField *const label = [[NSTextField alloc] initWithFrame:NSMakeRect(0.f, 0.f, 0.f, 0.f)];
+    label.font = [NSFont systemFontOfSize:13.f];
+    label.drawsBackground = NO;
+    label.selectable = NO;
+    label.bordered = NO;
+    label.editable = NO;
+    label.bezeled = NO;
+    return label;
 }
 
 @end
