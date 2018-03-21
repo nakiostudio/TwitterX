@@ -17,6 +17,9 @@
 #import "TWXConsumerKeysOverride.h"
 #import "TWXRepliesCount.h"
 #import "TWXDirectMessagesCrash.h"
+#import "TWXBookmarkActions.h"
+#import "TWXBookmarksTimeline.h"
+#import "TWXBookmarksSidebarItem.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -31,6 +34,9 @@ NS_ASSUME_NONNULL_BEGIN
     [TWXConsumerKeysOverride loadFeature];
     [TWXRepliesCount loadFeature];
     [TWXDirectMessagesCrash loadFeature];
+    [TWXBookmarkActions loadFeature];
+    [TWXBookmarksTimeline loadFeature];
+    [TWXBookmarksSidebarItem loadFeature];
 }
 
 @end

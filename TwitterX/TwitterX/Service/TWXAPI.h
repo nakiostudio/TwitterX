@@ -8,17 +8,17 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#import <AppKit/AppKit.h>
+#import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSView (TWX)
+@interface TWXAPI: NSObject
 
-- (void)anchorToAttribute:(NSLayoutAttribute)toAttr ofView:(NSView *)view fromAttribute:(NSLayoutAttribute)fromAttr;
+- (instancetype)initWithTwitterAccount:(id)twitterAccount;
 
-- (void)anchorToAttribute:(NSLayoutAttribute)toAttr ofView:(NSView *)view fromAttribute:(NSLayoutAttribute)fromAttr constant:(CGFloat)constant;
+- (void)v1_1_requestTo:(NSString *)endpoint method:(NSString*)method parameters:(NSDictionary *)parameters callback:(void(^)(id))callback;
 
-- (void)anchorDimenstionAttribute:(NSLayoutAttribute)attr toConstant:(CGFloat)constant;
+- (void)v2_requestTo:(NSString *)endpoint method:(NSString*)method parameters:(NSDictionary *)parameters callback:(void(^)(id))callback;
 
 @end
 

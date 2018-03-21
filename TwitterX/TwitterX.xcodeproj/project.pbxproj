@@ -18,6 +18,21 @@
 		335D38DD2038DA6100379A21 /* TWXRuntime.h in Headers */ = {isa = PBXBuildFile; fileRef = 335D38DB2038DA6100379A21 /* TWXRuntime.h */; };
 		335D38DE2038DA6100379A21 /* TWXRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 335D38DC2038DA6100379A21 /* TWXRuntime.m */; };
 		335D38E02038E45C00379A21 /* TwitterX.m in Sources */ = {isa = PBXBuildFile; fileRef = 335D38DF2038E45C00379A21 /* TwitterX.m */; };
+		33B95C172062767F0060B8D5 /* TWXAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 33B95C152062767F0060B8D5 /* TWXAPI.h */; };
+		33B95C182062767F0060B8D5 /* TWXAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B95C162062767F0060B8D5 /* TWXAPI.m */; };
+		33B95C1D206294EE0060B8D5 /* TWXAPI+Bookmarks.h in Headers */ = {isa = PBXBuildFile; fileRef = 33B95C1B206294EE0060B8D5 /* TWXAPI+Bookmarks.h */; };
+		33B95C1E206294EE0060B8D5 /* TWXAPI+Bookmarks.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B95C1C206294EE0060B8D5 /* TWXAPI+Bookmarks.m */; };
+		33B95C212062D1B30060B8D5 /* TWXBookmarksTimeline.h in Headers */ = {isa = PBXBuildFile; fileRef = 33B95C1F2062D1B30060B8D5 /* TWXBookmarksTimeline.h */; };
+		33B95C222062D1B30060B8D5 /* TWXBookmarksTimeline.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B95C202062D1B30060B8D5 /* TWXBookmarksTimeline.m */; };
+		33B95C252062E7720060B8D5 /* TWXBookmarksSidebarItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 33B95C232062E7720060B8D5 /* TWXBookmarksSidebarItem.h */; };
+		33B95C262062E7720060B8D5 /* TWXBookmarksSidebarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B95C242062E7720060B8D5 /* TWXBookmarksSidebarItem.m */; };
+		33B95C34206308190060B8D5 /* TwitterXAssets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 33B95C2B2062FF820060B8D5 /* TwitterXAssets.bundle */; };
+		33B95C3E206310760060B8D5 /* NSImage+TWX.h in Headers */ = {isa = PBXBuildFile; fileRef = 33B95C3C206310760060B8D5 /* NSImage+TWX.h */; };
+		33B95C3F206310760060B8D5 /* NSImage+TWX.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B95C3D206310760060B8D5 /* NSImage+TWX.m */; };
+		33B95C4620631AB30060B8D5 /* bookmarks.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B95C4420631AB20060B8D5 /* bookmarks.png */; };
+		33B95C4720631AB30060B8D5 /* bookmarks@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B95C4520631AB20060B8D5 /* bookmarks@2x.png */; };
+		C13554702061C4E700F6504D /* TWXBookmarkActions.h in Headers */ = {isa = PBXBuildFile; fileRef = C135546E2061C4E700F6504D /* TWXBookmarkActions.h */; };
+		C13554712061C4E700F6504D /* TWXBookmarkActions.m in Sources */ = {isa = PBXBuildFile; fileRef = C135546F2061C4E700F6504D /* TWXBookmarkActions.m */; };
 		C18C74F620507003001B0AAC /* TWXDirectMessagesCrash.h in Headers */ = {isa = PBXBuildFile; fileRef = C18C74F420507003001B0AAC /* TWXDirectMessagesCrash.h */; };
 		C18C74F720507003001B0AAC /* TWXDirectMessagesCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = C18C74F520507003001B0AAC /* TWXDirectMessagesCrash.m */; };
 		C1B3282F2059160D00009EA8 /* NSView+TWX.h in Headers */ = {isa = PBXBuildFile; fileRef = C1B3282D2059160D00009EA8 /* NSView+TWX.h */; };
@@ -46,6 +61,22 @@
 		335D38DB2038DA6100379A21 /* TWXRuntime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWXRuntime.h; sourceTree = "<group>"; };
 		335D38DC2038DA6100379A21 /* TWXRuntime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWXRuntime.m; sourceTree = "<group>"; };
 		335D38DF2038E45C00379A21 /* TwitterX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterX.m; sourceTree = "<group>"; };
+		33B95C152062767F0060B8D5 /* TWXAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWXAPI.h; sourceTree = "<group>"; };
+		33B95C162062767F0060B8D5 /* TWXAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWXAPI.m; sourceTree = "<group>"; };
+		33B95C1B206294EE0060B8D5 /* TWXAPI+Bookmarks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TWXAPI+Bookmarks.h"; sourceTree = "<group>"; };
+		33B95C1C206294EE0060B8D5 /* TWXAPI+Bookmarks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TWXAPI+Bookmarks.m"; sourceTree = "<group>"; };
+		33B95C1F2062D1B30060B8D5 /* TWXBookmarksTimeline.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWXBookmarksTimeline.h; sourceTree = "<group>"; };
+		33B95C202062D1B30060B8D5 /* TWXBookmarksTimeline.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWXBookmarksTimeline.m; sourceTree = "<group>"; };
+		33B95C232062E7720060B8D5 /* TWXBookmarksSidebarItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWXBookmarksSidebarItem.h; sourceTree = "<group>"; };
+		33B95C242062E7720060B8D5 /* TWXBookmarksSidebarItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWXBookmarksSidebarItem.m; sourceTree = "<group>"; };
+		33B95C2B2062FF820060B8D5 /* TwitterXAssets.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwitterXAssets.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		33B95C2D2062FF820060B8D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33B95C3C206310760060B8D5 /* NSImage+TWX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSImage+TWX.h"; sourceTree = "<group>"; };
+		33B95C3D206310760060B8D5 /* NSImage+TWX.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSImage+TWX.m"; sourceTree = "<group>"; };
+		33B95C4420631AB20060B8D5 /* bookmarks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookmarks.png; sourceTree = "<group>"; };
+		33B95C4520631AB20060B8D5 /* bookmarks@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bookmarks@2x.png"; sourceTree = "<group>"; };
+		C135546E2061C4E700F6504D /* TWXBookmarkActions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWXBookmarkActions.h; sourceTree = "<group>"; };
+		C135546F2061C4E700F6504D /* TWXBookmarkActions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWXBookmarkActions.m; sourceTree = "<group>"; };
 		C18C74F420507003001B0AAC /* TWXDirectMessagesCrash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWXDirectMessagesCrash.h; sourceTree = "<group>"; };
 		C18C74F520507003001B0AAC /* TWXDirectMessagesCrash.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWXDirectMessagesCrash.m; sourceTree = "<group>"; };
 		C1B3282D2059160D00009EA8 /* NSView+TWX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSView+TWX.h"; sourceTree = "<group>"; };
@@ -68,6 +99,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		33B95C282062FF820060B8D5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -75,7 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				335D38A220382C9100379A21 /* TwitterX */,
-				335D38CA20387EE300379A21 /* TwitterX */,
+				33B95C2C2062FF820060B8D5 /* TwitterXAssets */,
 				335D38A120382C9100379A21 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -84,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				335D38C920387EE300379A21 /* TwitterX.framework */,
+				33B95C2B2062FF820060B8D5 /* TwitterXAssets.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -91,8 +130,12 @@
 		335D38A220382C9100379A21 /* TwitterX */ = {
 			isa = PBXGroup;
 			children = (
+				33B95C1A206294D20060B8D5 /* Service */,
 				335D38DA2038DA4B00379A21 /* Utilities */,
 				335D38B220386E2D00379A21 /* Features */,
+				335D38CB20387EE300379A21 /* TwitterX.h */,
+				335D38DF2038E45C00379A21 /* TwitterX.m */,
+				335D38CC20387EE300379A21 /* Info.plist */,
 			);
 			path = TwitterX;
 			sourceTree = "<group>";
@@ -117,18 +160,14 @@
 				C1D846FB2042B08C0016E52D /* TWXRepliesCount.m */,
 				C18C74F420507003001B0AAC /* TWXDirectMessagesCrash.h */,
 				C18C74F520507003001B0AAC /* TWXDirectMessagesCrash.m */,
+				C135546E2061C4E700F6504D /* TWXBookmarkActions.h */,
+				C135546F2061C4E700F6504D /* TWXBookmarkActions.m */,
+				33B95C1F2062D1B30060B8D5 /* TWXBookmarksTimeline.h */,
+				33B95C202062D1B30060B8D5 /* TWXBookmarksTimeline.m */,
+				33B95C232062E7720060B8D5 /* TWXBookmarksSidebarItem.h */,
+				33B95C242062E7720060B8D5 /* TWXBookmarksSidebarItem.m */,
 			);
 			path = Features;
-			sourceTree = "<group>";
-		};
-		335D38CA20387EE300379A21 /* TwitterX */ = {
-			isa = PBXGroup;
-			children = (
-				335D38CB20387EE300379A21 /* TwitterX.h */,
-				335D38DF2038E45C00379A21 /* TwitterX.m */,
-				335D38CC20387EE300379A21 /* Info.plist */,
-			);
-			path = TwitterX;
 			sourceTree = "<group>";
 		};
 		335D38DA2038DA4B00379A21 /* Utilities */ = {
@@ -138,8 +177,39 @@
 				335D38DC2038DA6100379A21 /* TWXRuntime.m */,
 				C1B3282D2059160D00009EA8 /* NSView+TWX.h */,
 				C1B3282E2059160D00009EA8 /* NSView+TWX.m */,
+				33B95C3C206310760060B8D5 /* NSImage+TWX.h */,
+				33B95C3D206310760060B8D5 /* NSImage+TWX.m */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		33B95C1A206294D20060B8D5 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				33B95C152062767F0060B8D5 /* TWXAPI.h */,
+				33B95C162062767F0060B8D5 /* TWXAPI.m */,
+				33B95C1B206294EE0060B8D5 /* TWXAPI+Bookmarks.h */,
+				33B95C1C206294EE0060B8D5 /* TWXAPI+Bookmarks.m */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		33B95C2C2062FF820060B8D5 /* TwitterXAssets */ = {
+			isa = PBXGroup;
+			children = (
+				33B95C2D2062FF820060B8D5 /* Info.plist */,
+				33B95C3720630A210060B8D5 /* Images */,
+			);
+			path = TwitterXAssets;
+			sourceTree = "<group>";
+		};
+		33B95C3720630A210060B8D5 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				33B95C4420631AB20060B8D5 /* bookmarks.png */,
+				33B95C4520631AB20060B8D5 /* bookmarks@2x.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,14 +221,20 @@
 			files = (
 				C1D846FC2042B08C0016E52D /* TWXRepliesCount.h in Headers */,
 				335D38D520387EF600379A21 /* TWXCharactersLimit.h in Headers */,
+				33B95C1D206294EE0060B8D5 /* TWXAPI+Bookmarks.h in Headers */,
 				C1D84700204358FE0016E52D /* TWXConsumerKeysOverride.h in Headers */,
 				C18C74F620507003001B0AAC /* TWXDirectMessagesCrash.h in Headers */,
 				C1D846F82041F5950016E52D /* TWXLightThemeReborn.h in Headers */,
 				335D38DD2038DA6100379A21 /* TWXRuntime.h in Headers */,
+				33B95C3E206310760060B8D5 /* NSImage+TWX.h in Headers */,
 				335D38D320387EF100379A21 /* TWXFeature.h in Headers */,
+				33B95C172062767F0060B8D5 /* TWXAPI.h in Headers */,
 				C1D846F42041BB080016E52D /* TWXRoundedStatusContent.h in Headers */,
+				C13554702061C4E700F6504D /* TWXBookmarkActions.h in Headers */,
 				C1B3282F2059160D00009EA8 /* NSView+TWX.h in Headers */,
 				335D38CD20387EE300379A21 /* TwitterX.h in Headers */,
+				33B95C252062E7720060B8D5 /* TWXBookmarksSidebarItem.h in Headers */,
+				33B95C212062D1B30060B8D5 /* TWXBookmarksTimeline.h in Headers */,
 				335D38D720387EFC00379A21 /* TWXRoundedAvatars.h in Headers */,
 				33075926203D9EF700CAA86C /* TWXEnhancedFullscreen.h in Headers */,
 			);
@@ -185,6 +261,23 @@
 			productReference = 335D38C920387EE300379A21 /* TwitterX.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		33B95C2A2062FF820060B8D5 /* TwitterXAssets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33B95C2E2062FF820060B8D5 /* Build configuration list for PBXNativeTarget "TwitterXAssets" */;
+			buildPhases = (
+				33B95C272062FF820060B8D5 /* Sources */,
+				33B95C282062FF820060B8D5 /* Frameworks */,
+				33B95C292062FF820060B8D5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TwitterXAssets;
+			productName = TwitterXAssets;
+			productReference = 33B95C2B2062FF820060B8D5 /* TwitterXAssets.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -195,6 +288,10 @@
 				ORGANIZATIONNAME = twitterx;
 				TargetAttributes = {
 					335D38C820387EE300379A21 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					33B95C2A2062FF820060B8D5 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
@@ -213,6 +310,7 @@
 			projectRoot = "";
 			targets = (
 				335D38C820387EE300379A21 /* TwitterX */,
+				33B95C2A2062FF820060B8D5 /* TwitterXAssets */,
 			);
 		};
 /* End PBXProject section */
@@ -222,6 +320,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33B95C34206308190060B8D5 /* TwitterXAssets.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33B95C292062FF820060B8D5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33B95C4720631AB30060B8D5 /* bookmarks@2x.png in Resources */,
+				33B95C4620631AB30060B8D5 /* bookmarks.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,15 +342,28 @@
 			files = (
 				335D38E02038E45C00379A21 /* TwitterX.m in Sources */,
 				335D38D820387EFF00379A21 /* TWXRoundedAvatars.m in Sources */,
+				33B95C182062767F0060B8D5 /* TWXAPI.m in Sources */,
 				C18C74F720507003001B0AAC /* TWXDirectMessagesCrash.m in Sources */,
+				33B95C3F206310760060B8D5 /* NSImage+TWX.m in Sources */,
+				33B95C1E206294EE0060B8D5 /* TWXAPI+Bookmarks.m in Sources */,
 				33075927203D9EF700CAA86C /* TWXEnhancedFullscreen.m in Sources */,
 				C1D84701204358FE0016E52D /* TWXConsumerKeysOverride.m in Sources */,
+				C13554712061C4E700F6504D /* TWXBookmarkActions.m in Sources */,
 				335D38D620387EF900379A21 /* TWXCharactersLimit.m in Sources */,
+				33B95C262062E7720060B8D5 /* TWXBookmarksSidebarItem.m in Sources */,
 				C1D846FD2042B08C0016E52D /* TWXRepliesCount.m in Sources */,
 				335D38DE2038DA6100379A21 /* TWXRuntime.m in Sources */,
+				33B95C222062D1B30060B8D5 /* TWXBookmarksTimeline.m in Sources */,
 				C1D846F92041F5950016E52D /* TWXLightThemeReborn.m in Sources */,
 				C1B328302059160D00009EA8 /* NSView+TWX.m in Sources */,
 				C1D846F52041BB080016E52D /* TWXRoundedStatusContent.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33B95C272062FF820060B8D5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +523,36 @@
 			};
 			name = Release;
 		};
+		33B95C2F2062FF820060B8D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = TwitterXAssets/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_BUNDLE_IDENTIFIER = com.twitterx.TwitterXAssets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		33B95C302062FF820060B8D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = TwitterXAssets/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_BUNDLE_IDENTIFIER = com.twitterx.TwitterXAssets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -419,6 +570,15 @@
 			buildConfigurations = (
 				335D38CF20387EE300379A21 /* Debug */,
 				335D38D020387EE300379A21 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		33B95C2E2062FF820060B8D5 /* Build configuration list for PBXNativeTarget "TwitterXAssets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33B95C2F2062FF820060B8D5 /* Debug */,
+				33B95C302062FF820060B8D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
