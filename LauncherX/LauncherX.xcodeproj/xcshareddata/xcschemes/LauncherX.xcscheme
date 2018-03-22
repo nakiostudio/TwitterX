@@ -14,6 +14,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "33B95C2A2062FF820060B8D5"
+               BuildableName = "TwitterXAssets.bundle"
+               BlueprintName = "TwitterXAssets"
+               ReferencedContainer = "container:../TwitterX/TwitterX.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "335D38C820387EE300379A21"
                BuildableName = "TwitterX.framework"
                BlueprintName = "TwitterX"

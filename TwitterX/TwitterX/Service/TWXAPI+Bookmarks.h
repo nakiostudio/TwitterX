@@ -8,17 +8,18 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#import <AppKit/AppKit.h>
+#import <Foundation/Foundation.h>
+#import "TWXAPI.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSView (TWX)
+@interface TWXAPI (Bookmarks)
 
-- (void)anchorToAttribute:(NSLayoutAttribute)toAttr ofView:(NSView *)view fromAttribute:(NSLayoutAttribute)fromAttr;
+- (void)fetchBookmarksWithCompletion:(void(^)(NSArray *))completion;
 
-- (void)anchorToAttribute:(NSLayoutAttribute)toAttr ofView:(NSView *)view fromAttribute:(NSLayoutAttribute)fromAttr constant:(CGFloat)constant;
+- (void)addBookmarkForTweetWithIdentifier:(NSString *)identifier;
 
-- (void)anchorDimenstionAttribute:(NSLayoutAttribute)attr toConstant:(CGFloat)constant;
+- (void)removeBookmarkForTweetWithIdentifier:(NSString *)identifier completion:(void(^)(id))completion ;
 
 @end
 

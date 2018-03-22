@@ -8,17 +8,25 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#import <AppKit/AppKit.h>
+#import "NSBundle+TWX.h"
+#import "TWXRuntime.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSView (TWX)
+@implementation NSBundle (TWX)
 
-- (void)anchorToAttribute:(NSLayoutAttribute)toAttr ofView:(NSView *)view fromAttribute:(NSLayoutAttribute)fromAttr;
-
-- (void)anchorToAttribute:(NSLayoutAttribute)toAttr ofView:(NSView *)view fromAttribute:(NSLayoutAttribute)fromAttr constant:(CGFloat)constant;
-
-- (void)anchorDimenstionAttribute:(NSLayoutAttribute)attr toConstant:(CGFloat)constant;
++ (nullable NSBundle *)twx_assetsBundle {
+    static NSBundle *bundle;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSBundle *const frameworkBundle = [NSBundle bundleForClass:[TWXRuntime class]];
+        NSURL *__nullable const assetsBundleURL = [frameworkBundle URLForResource:@"TwitterXAssets" withExtension:@"bundle"];
+        if (assetsBundleURL) {
+            bundle = [NSBundle bundleWithURL:assetsBundleURL];
+        }
+    });
+    return bundle;
+}
 
 @end
 
