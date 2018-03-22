@@ -15,7 +15,8 @@ available on the web version.
 ## How
 
 > As of 16th of March 2018 you need to provide a valid consumer key and consumer secret in order
-> to make the application work.
+> to make the application work. Using custom keys implies uncertain consequences, use TwitterX at
+> your own risk.
 
 For this project to work you need to have Twitter for macOS in your computer. Twitter removed the
 application from the macOS AppStore but if you ever installed the application it will still be
