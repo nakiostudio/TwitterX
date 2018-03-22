@@ -25,14 +25,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSImage *)NSImage_imageNamed:(NSString *)name {
     NSParameterAssert(name);
+    
     NSImage *__nullable const mainBundleImage = [self NSImage_imageNamed:name];
     if (mainBundleImage) {
         return mainBundleImage;
     }
     
-    NSBundle *frameworkBundle = [NSBundle bundleForClass:[TWXRuntime class]];
-    NSURL *assetsBundleURL = [frameworkBundle URLForResource:@"TwitterXAssets" withExtension:@"bundle"];
-    NSBundle *assetsBundle = [NSBundle bundleWithURL:assetsBundleURL];
+    NSBundle *const frameworkBundle = [NSBundle bundleForClass:[TWXRuntime class]];
+    NSURL *__nullable const assetsBundleURL = [frameworkBundle URLForResource:@"TwitterXAssets" withExtension:@"bundle"];
+    NSBundle *__nullable assetsBundle;
+    if (assetsBundleURL) {
+        assetsBundle = [NSBundle bundleWithURL:assetsBundleURL];
+    }
     return [assetsBundle imageForResource:name];
 }
 

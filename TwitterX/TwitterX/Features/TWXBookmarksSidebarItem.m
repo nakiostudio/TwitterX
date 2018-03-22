@@ -74,11 +74,30 @@ static void *TWXBookmarksSidebarItemBookmarksButtonRefKey = &TWXBookmarksSidebar
     }
     
     NSButton *const newButton = [[[@"TMSidebarButton" twx_class] alloc] init];
+    newButton.translatesAutoresizingMaskIntoConstraints = NO;
     [newButton performSelector:@selector(commonInit)];
     [newButton performSelector:@selector(setBaseImageName:) withObject:@"bookmarks"];
-    newButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [newButton setTarget:self];
+    [newButton setAction:@selector(twx_switchToBookmarks:)];
     objc_setAssociatedObject(self, TWXBookmarksSidebarItemBookmarksButtonRefKey, newButton, OBJC_ASSOCIATION_RETAIN);
     return newButton;
+}
+
+- (void)twx_switchToBookmarks:(NSButton *)sender {
+    NSArray *buttons = @[
+         [self performSelector:@selector(homeButton)],
+         [self performSelector:@selector(momentsButton)],
+         [self performSelector:@selector(notificationsButton)],
+         [self performSelector:@selector(directMessagesButton)],
+         [self performSelector:@selector(listsButton)],
+         [self performSelector:@selector(profileButton)],
+         [self performSelector:@selector(searchButton)]
+    ];
+    
+    [[self twx_bookmarksButton] setState:NSControlStateValueOn];
+    [buttons enumerateObjectsUsingBlock:^(NSButton * _Nonnull button, NSUInteger idx, BOOL * _Nonnull stop) {
+        [button setState:NSControlStateValueOff];
+    }];
 }
 
 @end

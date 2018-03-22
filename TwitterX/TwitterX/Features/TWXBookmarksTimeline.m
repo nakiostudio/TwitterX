@@ -106,7 +106,7 @@ static void *TWXBookmarksTimelineIsBookmarksScreenRefKey = &TWXBookmarksTimeline
 #pragma mark - Convenience
 
 - (BOOL)twx_isBookmarksScreen {
-    return YES; //objc_getAssociatedObject(self, TWXDisplayBookmarksIsBookmarksScreenRefKey) != nil;
+    return objc_getAssociatedObject(self, TWXBookmarksTimelineIsBookmarksScreenRefKey) != nil;
 }
 
 - (NSArray *)twx_statuses {

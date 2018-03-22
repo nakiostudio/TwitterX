@@ -55,8 +55,8 @@ NS_ASSUME_NONNULL_BEGIN
      persistent:(BOOL)persistent callback:(void(^)(id))callback start:(NSString *)start excludingParameters:(nullable NSDictionary *)excludingParameters {
     NSParameterAssert(endpoint && apiRoot && method && parameters && callback && start);
     
-    SEL requestSelector = @selector(request:apiRoot:method:parameters:multiPartFormData:persistent:callback:start:excludingParameters:);
-    NSInvocation *requestInvocation = [NSInvocation invocationWithMethodSignature:[self.twitterAPI methodSignatureForSelector:requestSelector]];
+    const SEL requestSelector = @selector(request:apiRoot:method:parameters:multiPartFormData:persistent:callback:start:excludingParameters:);
+    NSInvocation *const requestInvocation = [NSInvocation invocationWithMethodSignature:[self.twitterAPI methodSignatureForSelector:requestSelector]];
     requestInvocation.selector = requestSelector;
     requestInvocation.target = self.twitterAPI;
     [requestInvocation setArgument:&endpoint atIndex:2];
@@ -83,9 +83,9 @@ NS_ASSUME_NONNULL_BEGIN
     void(^__nullable callback)(id) = nil;
     
     // Invocation
-    id allocatedAPI = [NSClassFromString(@"TwitterAPI") alloc];
-    SEL selector = @selector(initWithAccount:apiRoot:callback:);
-    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[allocatedAPI methodSignatureForSelector:selector]];
+    id const allocatedAPI = [NSClassFromString(@"TwitterAPI") alloc];
+    const SEL selector = @selector(initWithAccount:apiRoot:callback:);
+    NSInvocation *const invocation = [NSInvocation invocationWithMethodSignature:[allocatedAPI methodSignatureForSelector:selector]];
     invocation.selector = selector;
     invocation.target = allocatedAPI;
     [invocation setArgument:&twitterAccount atIndex:2];
