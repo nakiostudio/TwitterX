@@ -58,7 +58,9 @@ static void *TwitterAPIRefKey = &TwitterAPIRefKey;
     
     TWXAPI *const api = [self twx_api];
     id const status = menuItem.representedObject;
-    NSString *__nullable const statusID = [status performSelector:@selector(statusID)];
+    id __nullable const retweetedStatus = [status performSelector:@selector(retweetedStatus)];
+    id const targetStatus = retweetedStatus ?: status;
+    NSString *__nullable const statusID = [targetStatus performSelector:@selector(statusID)];
     if (!statusID) {
         return;
     }
