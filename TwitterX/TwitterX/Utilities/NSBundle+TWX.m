@@ -8,32 +8,24 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#import "NSImage+TWX.h"
-#import "TWXRuntime.h"
 #import "NSBundle+TWX.h"
+#import "TWXRuntime.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@implementation NSImage (TWX)
+@implementation NSBundle (TWX)
 
-+ (void)load {
-    [TWXRuntime exchangeClassMethod:@"imageNamed:" ofClass:@"NSImage"];
-}
-
-@end
-
-@implementation NSObject (TWX)
-
-+ (NSImage *)NSImage_imageNamed:(NSString *)name {
-    NSParameterAssert(name);
-    
-    NSImage *__nullable const mainBundleImage = [self NSImage_imageNamed:name];
-    if (mainBundleImage) {
-        return mainBundleImage;
-    }
-    
-    NSBundle *__nullable assetsBundle = [NSBundle twx_assetsBundle];
-    return [assetsBundle imageForResource:name];
++ (nullable NSBundle *)twx_assetsBundle {
+    static NSBundle *bundle;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSBundle *const frameworkBundle = [NSBundle bundleForClass:[TWXRuntime class]];
+        NSURL *__nullable const assetsBundleURL = [frameworkBundle URLForResource:@"TwitterXAssets" withExtension:@"bundle"];
+        if (assetsBundleURL) {
+            bundle = [NSBundle bundleWithURL:assetsBundleURL];
+        }
+    });
+    return bundle;
 }
 
 @end
