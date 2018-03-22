@@ -22,7 +22,9 @@ static void *TWXBookmarksSidebarItemBookmarksButtonRefKey = &TWXBookmarksSidebar
 
 + (void)loadFeature {
     [TWXRuntime exchangeInstanceMethod:@"viewDidLoad" ofClass:@"TMSidebarItemViewController"];
+    [TWXRuntime exchangeInstanceMethod:@"themeChanged:" ofClass:@"TMSidebarItemViewController"];
     [TWXRuntime exchangeInstanceMethod:@"toggleButtonStates:" ofClass:@"TMSidebarItemViewController"];
+    [TWXRuntime exchangeInstanceMethod:@"jumpToAccount:item:animated:" ofClass:@"TMRootViewController"];
 }
 
 @end
@@ -58,11 +60,56 @@ static void *TWXBookmarksSidebarItemBookmarksButtonRefKey = &TWXBookmarksSidebar
     [bookmarksButton anchorToAttribute:NSLayoutAttributeTrailing ofView:containerView fromAttribute:NSLayoutAttributeTrailing];
     [bookmarksButton anchorToAttribute:NSLayoutAttributeBottom ofView:directMessagesButton fromAttribute:NSLayoutAttributeTop constant:5.0f];
     [profileButton anchorToAttribute:NSLayoutAttributeBottom ofView:bookmarksButton fromAttribute:NSLayoutAttributeTop constant: 5.0f];
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(twx_didReceiveAddedToBookmarkNotification:)
+     name:@"com.twitter.mac.TMSidebarItemViewControllerBookmarkNotification"
+     object:nil];
+}
+
+- (void)TMSidebarItemViewController_themeChanged:(id)theme {
+    if (![self isKindOfClass:[@"TMSidebarItemViewController" twx_class]]) {
+        [self TMSidebarItemViewController_themeChanged:theme];
+        return;
+    }
+    
+    [self TMSidebarItemViewController_themeChanged:theme];
+    
+    NSButton *const directMessagesButton = [self performSelector:@selector(directMessagesButton)];
+    NSButton *const bookmarksButton = [self twx_bookmarksButton];
+    [bookmarksButton performSelector:@selector(setColorsForStates:) withObject:[directMessagesButton performSelector:@selector(colorsForStates)]];
 }
 
 - (void)TMSidebarItemViewController_toggleButtonStates:(NSInteger)states {
     [self TMSidebarItemViewController_toggleButtonStates:states];
     [[self twx_bookmarksButton] setState:NSControlStateValueOff];
+}
+
+- (void)TMRootViewController_jumpToAccount:(id)account item:(NSInteger)item animated:(BOOL)animated {
+    if (![self isKindOfClass:[@"TMRootViewController" twx_class]] || item != 1000) {
+        return [self TMRootViewController_jumpToAccount:account item:item animated:animated];
+    }
+    
+    NSInteger const currentItem = (NSInteger)[self performSelector:@selector(currentItem)];
+    if (currentItem == item) {
+        return;
+    }
+    
+    NSViewController *const rootViewController = (NSViewController *)self;
+    id const appDelegate = [NSApp delegate];
+    [appDelegate performSelector:@selector(setSelectedAccount:) withObject:account];
+    
+    NSViewController *bookmarksTimelineController = [[[@"TWMHomeTimelineController" twx_class] alloc] init];
+    [bookmarksTimelineController performSelector:@selector(setAccount:) withObject:account];
+    [bookmarksTimelineController performSelector:@selector(setTitle:) withObject:@"Bookmarks"];
+    
+    NSViewController *const navigationController = [rootViewController performSelector:@selector(navigationController)];
+    [navigationController twx_performSelector:@selector(setRootViewController:animated:) withObject:bookmarksTimelineController value:animated];
+    
+    [rootViewController.view.window makeFirstResponder:bookmarksTimelineController.view];
+    [rootViewController performSelector:@selector(setCurrentContentController:) withObject:bookmarksTimelineController];
+    [rootViewController twx_performSelector:@selector(setCurrentItem:) value:item];
 }
 
 #pragma mark - Convenience
@@ -93,11 +140,27 @@ static void *TWXBookmarksSidebarItemBookmarksButtonRefKey = &TWXBookmarksSidebar
          [self performSelector:@selector(profileButton)],
          [self performSelector:@selector(searchButton)]
     ];
-    
-    [[self twx_bookmarksButton] setState:NSControlStateValueOn];
     [buttons enumerateObjectsUsingBlock:^(NSButton * _Nonnull button, NSUInteger idx, BOOL * _Nonnull stop) {
         [button setState:NSControlStateValueOff];
     }];
+    
+    NSButton *const bookmarksButton = [self twx_bookmarksButton];
+    [bookmarksButton setState:NSControlStateValueOn];
+    [bookmarksButton twx_performSelector:@selector(setUnreadItems:) value:0];
+    
+    NSInteger const bookmarksIndex = 1000;
+    NSViewController *__nullable const parentViewController = ((NSViewController *)self).parentViewController;
+    id const account = [self performSelector:@selector(account)];
+    [parentViewController twx_performSelector:@selector(_internalJumpToAccount:item:) withObject:account value:bookmarksIndex];
+}
+
+- (void)twx_didReceiveAddedToBookmarkNotification:(NSNotification *)notification {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSButton *const bookmarksButton = [self twx_bookmarksButton];
+        if (bookmarksButton.state == NSControlStateValueOff) {
+            [bookmarksButton twx_performSelector:@selector(setUnreadItems:) value:1];
+        }
+    });
 }
 
 @end

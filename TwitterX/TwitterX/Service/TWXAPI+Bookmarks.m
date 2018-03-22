@@ -36,10 +36,16 @@ NS_ASSUME_NONNULL_BEGIN
         
         NSMutableArray *const tweets = [NSMutableArray array];
         NSDictionary *__nullable const tweetsDictionaries = jsonResponse[@"globalObjects"][@"tweets"];
-        for (NSDictionary *const tweetDictionary in [tweetsDictionaries allValues]) {
+        NSDictionary *__nullable const userDictionaries = jsonResponse[@"globalObjects"][@"users"];
+        NSArray<NSString *> *const sortedTweetIds = [[self class] sortedTweetIdentifiersForInJsonResponse:jsonResponse];
+        for (NSString *const tweetId in sortedTweetIds) {
+            NSMutableDictionary *__nullable const tweetDictionary = tweetsDictionaries[tweetId];
+            if (!tweetDictionary) {
+                continue;
+            }
             NSMutableDictionary *const mutableTweetDictionary = [tweetDictionary mutableCopy];
-            [mutableTweetDictionary setObject:jsonResponse[@"globalObjects"][@"users"][tweetDictionary[@"user_id_str"]] ?: @{} forKey:@"user"];
-            id tweet = [[@"TwitterStatus" twx_class] performSelector:@selector(statusWithDictionary:) withObject:mutableTweetDictionary];
+            [mutableTweetDictionary setObject:userDictionaries[mutableTweetDictionary[@"user_id_str"]] ?: @{} forKey:@"user"];
+            id const tweet = [[@"TwitterStatus" twx_class] performSelector:@selector(statusWithDictionary:) withObject:mutableTweetDictionary];
             if (tweet) {
                 [tweets addObject:tweet];
             }
@@ -53,17 +59,32 @@ NS_ASSUME_NONNULL_BEGIN
     NSMutableDictionary *const parameters = [[[self class] defaultParameters] mutableCopy];
     [parameters setObject:@(identifier.integerValue) forKey:@"tweet_id"];
     [self v1_1_requestTo:@"bookmark/entries/add.json" method:@"POST" parameters:parameters callback:^(id _Nonnull request) {
-        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"com.twitter.mac.TMSidebarItemViewControllerBookmarkNotification" object:nil];
     }];
 }
 
-- (void)removeBookmarkForTweetWithIdentifier:(NSString *)identifier {
-    NSMutableDictionary *const parameters = [[[self class] defaultParameters] mutableCopy];
-    [parameters setObject:@(identifier.integerValue) forKey:@"tweet_id"];
-    [self v1_1_requestTo:@"bookmark/entries/remove.json" method:@"POST" parameters:parameters callback:^(id _Nonnull request) {
-        
+- (void)removeBookmarkForTweetWithIdentifier:(NSString *)identifier completion:(void(^)(id))completion {
+    __weak typeof(self) weakSelf = self;
+    [self fetchBookmarksWithCompletion:^(NSArray *_Nonnull tweets) {
+        for (id const tweet in tweets) {
+            NSString *const tweetID = [tweet performSelector:@selector(statusID)];
+            if ([tweetID isEqualToString:identifier]) {
+                [weakSelf _proceedDeletingBookmarkWithIdentifier:identifier completion:completion];
+                return;
+            }
+        }
     }];
 }
+
+#pragma mark - Private
+
+- (void)_proceedDeletingBookmarkWithIdentifier:(NSString *)identifier completion:(void(^)(id))completion {
+    NSMutableDictionary *const parameters = [[[self class] defaultParameters] mutableCopy];
+    [parameters setObject:@(identifier.integerValue) forKey:@"tweet_id"];
+    [self v1_1_requestTo:@"bookmark/entries/remove.json" method:@"POST" parameters:parameters callback:completion];
+}
+
+#pragma mark - Private static
 
 + (NSDictionary *)defaultParameters {
     return @{
@@ -85,6 +106,27 @@ NS_ASSUME_NONNULL_BEGIN
          @"request_context": @"ptr",
          @"tweet_mode": @"extended"
     };
+}
+
++ (NSArray<NSString *> *)sortedTweetIdentifiersForInJsonResponse:(NSDictionary *)jsonResponse {
+    NSParameterAssert(jsonResponse);
+    
+    NSArray *__nullable const instructionsArray = jsonResponse[@"timeline"][@"instructions"];
+    if (!instructionsArray || instructionsArray.count == 0) {
+        return @[];
+    }
+    
+    NSMutableArray *const result = [NSMutableArray array];
+    NSArray<NSString *> *const expectedEntries = instructionsArray[0][@"addEntries"][@"entries"] ?: @[];
+    for (NSDictionary *const entry in expectedEntries) {
+        NSString *const entryId = entry[@"entryId"];
+        if ([entryId hasPrefix:@"tweet-"]) {
+            NSString *const tweetId = [entryId stringByReplacingCharactersInRange:NSMakeRange(0, 6) withString:@""];
+            [result addObject:tweetId];
+        }
+    }
+    
+    return result;
 }
 
 @end

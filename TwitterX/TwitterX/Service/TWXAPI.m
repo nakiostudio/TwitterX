@@ -69,6 +69,10 @@ NS_ASSUME_NONNULL_BEGIN
     [requestInvocation setArgument:&start atIndex:9];
     [requestInvocation setArgument:&excludingParameters atIndex:10];
     [requestInvocation invoke];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        endpoint; apiRoot; method; parameters; data; start; excludingParameters;
+    });
 }
 
 #pragma mark - Static
@@ -92,8 +96,11 @@ NS_ASSUME_NONNULL_BEGIN
     [invocation setArgument:&apiRoot atIndex:3];
     [invocation setArgument:&callback atIndex:4];
     [invocation invoke];
-    [invocation retainArguments];
     [invocation getReturnValue:&result];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        twitterAccount; apiRoot; callback;
+    });
     
     return (__bridge NSObject *)result;
 }

@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)addBookmarkForTweetWithIdentifier:(NSString *)identifier;
 
-- (void)removeBookmarkForTweetWithIdentifier:(NSString *)identifier;
+- (void)removeBookmarkForTweetWithIdentifier:(NSString *)identifier completion:(void(^)(id))completion ;
 
 @end
 

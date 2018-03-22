@@ -44,21 +44,39 @@ static void *TwitterAPIRefKey = &TwitterAPIRefKey;
         }
     }];
     
-    NSMenuItem *const addToBookmarksMenuItem = [[NSMenuItem alloc] initWithTitle:@"Add to Bookmarks..." action:@selector(twx_didTapAddToBookmarkMenuItem:) keyEquivalent:@"M"];
-    addToBookmarksMenuItem.target = self;
-    addToBookmarksMenuItem.representedObject = status;
-    [menu insertItem:addToBookmarksMenuItem atIndex:indexToInsert];
+    NSString *const title = [self twx_isBookmarksScreen] ? @"Remove from Bookmarks" : @"Add to Bookmarks...";
+    NSMenuItem *const bookmarksMenuItem = [[NSMenuItem alloc] initWithTitle:title action:@selector(twx_didTapBookmarkMenuItem:) keyEquivalent:@"M"];
+    bookmarksMenuItem.target = self;
+    bookmarksMenuItem.representedObject = status;
+    [menu insertItem:bookmarksMenuItem atIndex:indexToInsert];
 }
 
-- (void)twx_didTapAddToBookmarkMenuItem:(NSMenuItem *)menuItem {
+#pragma mark - Convenience
+
+- (void)twx_didTapBookmarkMenuItem:(NSMenuItem *)menuItem {
     NSParameterAssert(menuItem.representedObject);
     
     TWXAPI *const api = [self twx_api];
     id const status = menuItem.representedObject;
     NSString *__nullable const statusID = [status performSelector:@selector(statusID)];
-    if (statusID) {
-        [api addBookmarkForTweetWithIdentifier:statusID];
+    if (!statusID) {
+        return;
     }
+    
+    if (![self twx_isBookmarksScreen]) {
+        [api addBookmarkForTweetWithIdentifier:statusID];
+        return;
+    }
+    
+    __weak typeof(self) weakSelf = self;
+    [api removeBookmarkForTweetWithIdentifier:statusID completion:^(id _Nonnull request) {
+        [weakSelf performSelector:@selector(twx_fetchBookmarks)];
+    }];
+}
+
+- (BOOL)twx_isBookmarksScreen {
+    NSViewController *const viewController = (NSViewController *)self;
+    return [viewController.title isEqualToString:@"Bookmarks"];
 }
 
 - (TWXAPI *)twx_api {

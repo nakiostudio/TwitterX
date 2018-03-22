@@ -20,9 +20,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface NSString (TWX)
+@interface NSString (TWXRuntime)
 
 - (Class)twx_class;
+
+@end
+
+@interface NSObject (TWXRuntime)
+
+- (void)twx_performSelector:(SEL)selector value:(unsigned long long)value;
+
+- (void)twx_performSelector:(SEL)selector withObject:(id)object value:(unsigned long long)value;
 
 @end
 

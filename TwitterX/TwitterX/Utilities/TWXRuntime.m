@@ -41,10 +41,37 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@implementation NSString (TWX)
+@implementation NSString (TWXRuntime)
 
 - (Class)twx_class {
     return NSClassFromString(self);
+}
+
+@end
+
+@implementation NSObject (TWXRuntime)
+
+- (void)twx_performSelector:(SEL)selector value:(unsigned long long)value {
+    NSInvocation *const invocation = [NSInvocation invocationWithMethodSignature:[self methodSignatureForSelector:selector]];
+    invocation.target = self;
+    invocation.selector = selector;
+    [invocation setArgument:&value atIndex:2];
+    [invocation invoke];
+}
+
+- (void)twx_performSelector:(SEL)selector withObject:(id)object value:(unsigned long long)value {
+    NSParameterAssert(object);
+    
+    NSInvocation *const invocation = [NSInvocation invocationWithMethodSignature:[self methodSignatureForSelector:selector]];
+    invocation.target = self;
+    invocation.selector = selector;
+    [invocation setArgument:&object atIndex:2];
+    [invocation setArgument:&value atIndex:3];
+    [invocation invoke];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        object;
+    });
 }
 
 @end

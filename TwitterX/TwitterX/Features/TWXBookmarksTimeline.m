@@ -42,18 +42,12 @@ static void *TWXBookmarksTimelineIsBookmarksScreenRefKey = &TWXBookmarksTimeline
     }
     
     [self TWMHomeTimelineController_viewDidLoad];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [self performSelector:@selector(setTitle:) withObject:@"Bookmarks"];
     
-    __weak typeof(self) weakSelf = self;
-    [[self twx_api] fetchBookmarksWithCompletion:^(NSArray *_Nonnull statuses) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            objc_setAssociatedObject(weakSelf, TWXBookmarksTimelineStatusesRefKey, statuses, OBJC_ASSOCIATION_COPY);
-            NSTableView *const tableView = [weakSelf performSelector:@selector(tableView)];
-            [tableView reloadData];
-            [weakSelf performSelector:@selector(showTableView)];
-        });
-    }];
+    for (NSString *const name in [self twx_undesiredNotificationNames]) {
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:name object:nil];
+    }
+    
+    [self twx_fetchBookmarks];
 }
 
 - (void)TWMHomeTimelineController_viewDidAppear {
@@ -106,11 +100,40 @@ static void *TWXBookmarksTimelineIsBookmarksScreenRefKey = &TWXBookmarksTimeline
 #pragma mark - Convenience
 
 - (BOOL)twx_isBookmarksScreen {
-    return objc_getAssociatedObject(self, TWXBookmarksTimelineIsBookmarksScreenRefKey) != nil;
+    NSViewController *const viewController = (NSViewController *)self;
+    return [viewController.title isEqualToString:@"Bookmarks"];
 }
 
 - (NSArray *)twx_statuses {
     return objc_getAssociatedObject(self, TWXBookmarksTimelineStatusesRefKey) ?: @[];
+}
+
+- (void)twx_fetchBookmarks {
+    __weak typeof(self) weakSelf = self;
+    [[self twx_api] fetchBookmarksWithCompletion:^(NSArray *_Nonnull statuses) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            objc_setAssociatedObject(weakSelf, TWXBookmarksTimelineStatusesRefKey, statuses, OBJC_ASSOCIATION_COPY);
+            NSTableView *const tableView = [weakSelf performSelector:@selector(tableView)];
+            [tableView reloadData];
+            
+            if (statuses.count > 0) {
+                [weakSelf performSelector:@selector(showTableView)];
+                return;
+            }
+            
+            tableView.hidden = YES;
+            
+            NSTextField *const emptyLabel = [self performSelector:@selector(emptyLabel)];
+            emptyLabel.stringValue = statuses.count == 0 ? @"You haven't added any Tweets to your Bookmarks yet" : @"";
+            emptyLabel.hidden = statuses.count != 0;
+            
+            NSView *const loadingView = [self performSelector:@selector(loadingView)];
+            loadingView.hidden = NO;
+            
+            NSView *const loadingIndicator = [self performSelector:@selector(loadingIndicator)];
+            loadingIndicator.hidden = YES;
+        });
+    }];
 }
 
 - (TWXAPI *)twx_api {
@@ -122,6 +145,16 @@ static void *TWXBookmarksTimelineIsBookmarksScreenRefKey = &TWXBookmarksTimeline
     TWXAPI *const newAPI = [[TWXAPI alloc] initWithTwitterAccount:[self performSelector:@selector(account)]];
     objc_setAssociatedObject(self, TWXBookmarksTimelineAPIRefKey, newAPI, OBJC_ASSOCIATION_RETAIN);
     return newAPI;
+}
+
+- (NSArray<NSString *> *)twx_undesiredNotificationNames {
+    return @[
+        @"com.twitter.mac.TWMHomeTimelineHasNewerTweetsNotification",
+        @"com.twitter.mac.TWMHomeTimelineRateLimitNotification",
+        @"com.twitter.mac.TWMHomeTimelineRateLimitExpiredNotification",
+        @"com.twitter.mac.TWMHomeTimelineHasUpdatedTimelineActivityNotification",
+        @"com.twitter.mac.TWMHomeTimelineTweetDeletedNotification"
+    ];
 }
 
 @end
