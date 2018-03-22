@@ -1,5 +1,9 @@
 # Changelog
 
+## v.0.2.1
+
+* Fixed issue bookmarking retweets.
+
 ## v.0.2.0
 
 * Implemented Bookmarks.
