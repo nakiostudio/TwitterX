@@ -1,5 +1,9 @@
 # Changelog
 
+## v.0.2.0
+
+* Implemented Bookmarks.
+
 ## v.0.1.1
 
 * Drag and drop no longer needed as the Twitter app is
