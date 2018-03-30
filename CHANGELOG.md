@@ -1,5 +1,9 @@
 # Changelog
 
+## v.0.2.2
+
+* Shown preferences menu when the login modal is presented.
+
 ## v.0.2.1
 
 * Fixed issue bookmarking retweets.

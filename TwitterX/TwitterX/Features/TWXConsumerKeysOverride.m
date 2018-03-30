@@ -32,6 +32,8 @@ static void *TWXConsumerTextFieldsDelegateKey = &TWXConsumerTextFieldsDelegateKe
     [TWXRuntime exchangeInstanceMethod:@"oAuthConsumerKey" ofClass:@"TwitterAccount"];
     [TWXRuntime exchangeInstanceMethod:@"oAuthConsumerSecret" ofClass:@"TwitterAccount"];
     [TWXRuntime exchangeInstanceMethod:@"setGeneralView:" ofClass:@"TweetiePreferencesWindowController"];
+    [TWXRuntime exchangeInstanceMethod:@"windowDidLoad" ofClass:@"TMLoginWindowController"];
+    [TWXRuntime exchangeInstanceMethod:@"worksWhenModal" ofClass:@"NSWindow"];
 }
 
 @end
@@ -153,6 +155,17 @@ static void *TWXConsumerTextFieldsDelegateKey = &TWXConsumerTextFieldsDelegateKe
     }
     
     [self TweetiePreferencesWindowController_setGeneralView:view];
+}
+
+- (BOOL)NSWindow_worksWhenModal {
+    return YES;
+}
+
+- (void)TMLoginWindowController_windowDidLoad {
+    [self TMLoginWindowController_windowDidLoad];
+    if ([self isKindOfClass:[@"TMLoginWindowController" twx_class]]) {
+        [[NSApp delegate] performSelector:@selector(preferences:) withObject:nil];
+    }
 }
 
 #pragma mark - Static
