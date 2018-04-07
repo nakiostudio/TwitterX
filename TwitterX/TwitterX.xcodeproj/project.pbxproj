@@ -33,6 +33,12 @@
 		33B95C4720631AB30060B8D5 /* bookmarks@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B95C4520631AB20060B8D5 /* bookmarks@2x.png */; };
 		33B95C4A2063A6EA0060B8D5 /* NSBundle+TWX.h in Headers */ = {isa = PBXBuildFile; fileRef = 33B95C482063A6EA0060B8D5 /* NSBundle+TWX.h */; };
 		33B95C4B2063A6EA0060B8D5 /* NSBundle+TWX.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B95C492063A6EA0060B8D5 /* NSBundle+TWX.m */; };
+		37E3E2222078D41800C5B683 /* TWXDuskTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E3E2202078D41800C5B683 /* TWXDuskTheme.h */; };
+		37E3E2232078D41800C5B683 /* TWXDuskTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E3E2212078D41800C5B683 /* TWXDuskTheme.m */; };
+		37E3E2262078D93200C5B683 /* TWXThemeMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E3E2242078D93200C5B683 /* TWXThemeMenu.h */; };
+		37E3E2272078D93200C5B683 /* TWXThemeMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E3E2252078D93200C5B683 /* TWXThemeMenu.m */; };
+		37E3E2322078F98700C5B683 /* NSColor+TWX.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E3E2302078F98700C5B683 /* NSColor+TWX.h */; };
+		37E3E2332078F98700C5B683 /* NSColor+TWX.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E3E2312078F98700C5B683 /* NSColor+TWX.m */; };
 		C13554702061C4E700F6504D /* TWXBookmarkActions.h in Headers */ = {isa = PBXBuildFile; fileRef = C135546E2061C4E700F6504D /* TWXBookmarkActions.h */; };
 		C13554712061C4E700F6504D /* TWXBookmarkActions.m in Sources */ = {isa = PBXBuildFile; fileRef = C135546F2061C4E700F6504D /* TWXBookmarkActions.m */; };
 		C18C74F620507003001B0AAC /* TWXDirectMessagesCrash.h in Headers */ = {isa = PBXBuildFile; fileRef = C18C74F420507003001B0AAC /* TWXDirectMessagesCrash.h */; };
@@ -79,6 +85,12 @@
 		33B95C4520631AB20060B8D5 /* bookmarks@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bookmarks@2x.png"; sourceTree = "<group>"; };
 		33B95C482063A6EA0060B8D5 /* NSBundle+TWX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSBundle+TWX.h"; sourceTree = "<group>"; };
 		33B95C492063A6EA0060B8D5 /* NSBundle+TWX.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+TWX.m"; sourceTree = "<group>"; };
+		37E3E2202078D41800C5B683 /* TWXDuskTheme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWXDuskTheme.h; sourceTree = "<group>"; };
+		37E3E2212078D41800C5B683 /* TWXDuskTheme.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWXDuskTheme.m; sourceTree = "<group>"; };
+		37E3E2242078D93200C5B683 /* TWXThemeMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWXThemeMenu.h; sourceTree = "<group>"; };
+		37E3E2252078D93200C5B683 /* TWXThemeMenu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWXThemeMenu.m; sourceTree = "<group>"; };
+		37E3E2302078F98700C5B683 /* NSColor+TWX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSColor+TWX.h"; sourceTree = "<group>"; };
+		37E3E2312078F98700C5B683 /* NSColor+TWX.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSColor+TWX.m"; sourceTree = "<group>"; };
 		C135546E2061C4E700F6504D /* TWXBookmarkActions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWXBookmarkActions.h; sourceTree = "<group>"; };
 		C135546F2061C4E700F6504D /* TWXBookmarkActions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWXBookmarkActions.m; sourceTree = "<group>"; };
 		C18C74F420507003001B0AAC /* TWXDirectMessagesCrash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWXDirectMessagesCrash.h; sourceTree = "<group>"; };
@@ -134,6 +146,7 @@
 		335D38A220382C9100379A21 /* TwitterX */ = {
 			isa = PBXGroup;
 			children = (
+				37E3E21F2078D3F200C5B683 /* Theme */,
 				33B95C1A206294D20060B8D5 /* Service */,
 				335D38DA2038DA4B00379A21 /* Utilities */,
 				335D38B220386E2D00379A21 /* Features */,
@@ -170,6 +183,8 @@
 				33B95C202062D1B30060B8D5 /* TWXBookmarksTimeline.m */,
 				33B95C232062E7720060B8D5 /* TWXBookmarksSidebarItem.h */,
 				33B95C242062E7720060B8D5 /* TWXBookmarksSidebarItem.m */,
+				37E3E2242078D93200C5B683 /* TWXThemeMenu.h */,
+				37E3E2252078D93200C5B683 /* TWXThemeMenu.m */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -185,6 +200,8 @@
 				33B95C492063A6EA0060B8D5 /* NSBundle+TWX.m */,
 				33B95C3C206310760060B8D5 /* NSImage+TWX.h */,
 				33B95C3D206310760060B8D5 /* NSImage+TWX.m */,
+				37E3E2302078F98700C5B683 /* NSColor+TWX.h */,
+				37E3E2312078F98700C5B683 /* NSColor+TWX.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -218,6 +235,15 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		37E3E21F2078D3F200C5B683 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				37E3E2202078D41800C5B683 /* TWXDuskTheme.h */,
+				37E3E2212078D41800C5B683 /* TWXDuskTheme.m */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -228,10 +254,12 @@
 				C1D846FC2042B08C0016E52D /* TWXRepliesCount.h in Headers */,
 				335D38D520387EF600379A21 /* TWXCharactersLimit.h in Headers */,
 				33B95C4A2063A6EA0060B8D5 /* NSBundle+TWX.h in Headers */,
+				37E3E2322078F98700C5B683 /* NSColor+TWX.h in Headers */,
 				33B95C1D206294EE0060B8D5 /* TWXAPI+Bookmarks.h in Headers */,
 				C1D84700204358FE0016E52D /* TWXConsumerKeysOverride.h in Headers */,
 				C18C74F620507003001B0AAC /* TWXDirectMessagesCrash.h in Headers */,
 				C1D846F82041F5950016E52D /* TWXLightThemeReborn.h in Headers */,
+				37E3E2262078D93200C5B683 /* TWXThemeMenu.h in Headers */,
 				335D38DD2038DA6100379A21 /* TWXRuntime.h in Headers */,
 				33B95C3E206310760060B8D5 /* NSImage+TWX.h in Headers */,
 				335D38D320387EF100379A21 /* TWXFeature.h in Headers */,
@@ -241,6 +269,7 @@
 				C1B3282F2059160D00009EA8 /* NSView+TWX.h in Headers */,
 				335D38CD20387EE300379A21 /* TwitterX.h in Headers */,
 				33B95C252062E7720060B8D5 /* TWXBookmarksSidebarItem.h in Headers */,
+				37E3E2222078D41800C5B683 /* TWXDuskTheme.h in Headers */,
 				33B95C212062D1B30060B8D5 /* TWXBookmarksTimeline.h in Headers */,
 				335D38D720387EFC00379A21 /* TWXRoundedAvatars.h in Headers */,
 				33075926203D9EF700CAA86C /* TWXEnhancedFullscreen.h in Headers */,
@@ -351,13 +380,16 @@
 				335D38D820387EFF00379A21 /* TWXRoundedAvatars.m in Sources */,
 				33B95C182062767F0060B8D5 /* TWXAPI.m in Sources */,
 				C18C74F720507003001B0AAC /* TWXDirectMessagesCrash.m in Sources */,
+				37E3E2272078D93200C5B683 /* TWXThemeMenu.m in Sources */,
 				33B95C3F206310760060B8D5 /* NSImage+TWX.m in Sources */,
 				33B95C1E206294EE0060B8D5 /* TWXAPI+Bookmarks.m in Sources */,
 				33B95C4B2063A6EA0060B8D5 /* NSBundle+TWX.m in Sources */,
 				33075927203D9EF700CAA86C /* TWXEnhancedFullscreen.m in Sources */,
 				C1D84701204358FE0016E52D /* TWXConsumerKeysOverride.m in Sources */,
+				37E3E2332078F98700C5B683 /* NSColor+TWX.m in Sources */,
 				C13554712061C4E700F6504D /* TWXBookmarkActions.m in Sources */,
 				335D38D620387EF900379A21 /* TWXCharactersLimit.m in Sources */,
+				37E3E2232078D41800C5B683 /* TWXDuskTheme.m in Sources */,
 				33B95C262062E7720060B8D5 /* TWXBookmarksSidebarItem.m in Sources */,
 				C1D846FD2042B08C0016E52D /* TWXRepliesCount.m in Sources */,
 				335D38DE2038DA6100379A21 /* TWXRuntime.m in Sources */,
