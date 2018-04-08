@@ -15,16 +15,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 @implementation TWXRuntime
 
-+ (void)exchangeInstanceMethod:(NSString *)method ofClass:(NSString *)classString {
++ (void)exchangeInstanceMethod:(NSString *)method ofClass:(NSString *)classString prefix:(nullable NSString *)prefix {
     NSParameterAssert(method);
     NSParameterAssert(classString);
     
     SEL const originalSelector = NSSelectorFromString(method);
-    SEL const swizzledSelector = NSSelectorFromString([[classString stringByAppendingString:@"_"] stringByAppendingString:method]);
+    NSString* selectorName = [[classString stringByAppendingString:@"_"] stringByAppendingString:method];
+    if (prefix) {
+        selectorName = [[prefix stringByAppendingString:@"_"] stringByAppendingString:selectorName];
+    }
+    SEL const swizzledSelector = NSSelectorFromString(selectorName);
     
     Method const originalMethod = class_getInstanceMethod([classString twx_class], originalSelector);
     Method const swizzledMethod = class_getInstanceMethod([NSObject class], swizzledSelector);
     method_exchangeImplementations(originalMethod, swizzledMethod);
+}
+
++ (void)exchangeInstanceMethod:(NSString *)method ofClass:(NSString *)classString {
+    [self exchangeInstanceMethod:method ofClass:classString prefix:nil];
 }
 
 + (void)exchangeClassMethod:(NSString *)method ofClass:(NSString *)classString {
@@ -72,6 +80,34 @@ NS_ASSUME_NONNULL_BEGIN
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         object;
     });
+}
+
+- (void)twx_invoke:(NSString*)method arg:(id)arg {
+    SEL aSelector = NSSelectorFromString(method);
+
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[self methodSignatureForSelector:aSelector]];
+    
+    [invocation setTarget:self];
+    [invocation setSelector:aSelector];
+    [invocation setArgument:&arg atIndex:2];
+    
+    [invocation invoke];
+}
+
+- (id)twx_invokeAndReturnValue:(NSString*)method {
+    SEL aSelector = NSSelectorFromString(method);
+    
+    id returnStruct;
+    
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[self methodSignatureForSelector:aSelector]];
+    
+    [invocation setTarget:self];
+    [invocation setSelector:aSelector];
+    
+    [invocation invoke];
+    [invocation getReturnValue:&returnStruct];
+    
+    return returnStruct;
 }
 
 @end
