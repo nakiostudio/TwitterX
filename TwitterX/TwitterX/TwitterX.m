@@ -22,6 +22,7 @@
 #import "TWXBookmarksSidebarItem.h"
 #import "TWXThemeMenu.h"
 #import "TWXTheme.h"
+#import "TWXSource.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -41,6 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
     [TWXBookmarksSidebarItem loadFeature];
     [TWXTheme loadFeature];
     [TWXThemeMenu loadFeature];
+    [TWXSource loadFeature];
 }
 
 @end
