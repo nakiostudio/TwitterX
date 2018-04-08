@@ -14,15 +14,11 @@
 
 @implementation TWXThemeMenu
 + (void)loadFeature {
-    [self registerCustomTheme];
+    [[@"TMTheme" twx_class] twx_invoke:@"registerThemeClass:" arg:TWXDuskTheme.class];
     [TWXRuntime exchangeInstanceMethod:@"setGeneralView:"
                                ofClass:@"TweetiePreferencesWindowController"
                                 prefix: @"TWXThemeMenu"];
     [TWXRuntime exchangeInstanceMethod:@"didChangeDarkModeSetting:" ofClass:@"TweetiePreferencesWindowController"];
-}
-
-+ (void)registerCustomTheme {
-    [[@"TMTheme" twx_class] twx_invoke:@"registerThemeClass:" arg:TWXDuskTheme.class];
 }
 @end
 
@@ -81,6 +77,8 @@
     NSString* identifier = [self TWX_allThemeIdentifiers][index];
     [[@"TMTheme" twx_class] twx_invoke:@"switchToThemeWithIdentifier:" arg:identifier];
     [[@"TMTheme" twx_class] twx_invoke:@"saveThemeIdentifierToUserDefaults:" arg:identifier];
+
+    
 }
 
 @end

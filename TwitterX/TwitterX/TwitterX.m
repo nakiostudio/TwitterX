@@ -21,6 +21,7 @@
 #import "TWXBookmarksTimeline.h"
 #import "TWXBookmarksSidebarItem.h"
 #import "TWXThemeMenu.h"
+#import "TWXTheme.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -38,6 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
     [TWXBookmarkActions loadFeature];
     [TWXBookmarksTimeline loadFeature];
     [TWXBookmarksSidebarItem loadFeature];
+    [TWXTheme loadFeature];
     [TWXThemeMenu loadFeature];
 }
 
