@@ -19,10 +19,22 @@
                                ofClass:@"TweetiePreferencesWindowController"
                                 prefix: @"TWXThemeMenu"];
     [TWXRuntime exchangeInstanceMethod:@"didChangeDarkModeSetting:" ofClass:@"TweetiePreferencesWindowController"];
+    [TWXRuntime exchangeInstanceMethod:@"windowDidLoad" ofClass:@"TweetiePreferencesWindowController"];
 }
 @end
 
 @implementation NSObject (TWX)
+
+- (void)TweetiePreferencesWindowController_windowDidLoad {
+    [self TweetiePreferencesWindowController_windowDidLoad];
+    
+    // select current identifier
+    NSPopUpButton* themePopUpButton = [self valueForKey:@"_darkButton"];
+    NSString* currentThemeIdentifier = [[@"TMTheme" twx_class] twx_invokeAndReturnValue:@"currentThemeIdentifier"];
+    NSInteger currentThemeIndex = [[self TWX_allThemeIdentifiers] indexOfObject:currentThemeIdentifier];
+    NSLog(@"TWXThemeMenu_TweetiePreferencesWindowController_setGeneralView %ld", (long)currentThemeIndex);
+    [themePopUpButton selectItemAtIndex:currentThemeIndex];
+}
 
 - (NSArray*)TWX_allThemeNames {
     return @[NSLocalizedStringFromTable(@"YLa-rz-sxj.title", @"Preferences", nil),
@@ -42,32 +54,11 @@
         return;
     }
     
-    NSString * darkTitle = NSLocalizedStringFromTable(@"07L-lv-aR5.title", @"Preferences", nil);
-    NSString * lightTitle = NSLocalizedStringFromTable(@"YLa-rz-sxj.title", @"Preferences", nil);
-    
-    // get theme NSPopUpButton :p
-    NSPopUpButton* themePopUpButton;
-    for (NSView* subView in view.subviews) {
-        if (![subView isKindOfClass:NSPopUpButton.class]) {
-            continue;
-        }
-        NSPopUpButton* popupButton = (NSPopUpButton *)subView;
-        if ([popupButton.itemTitles containsObject:darkTitle] || [popupButton.itemTitles containsObject:lightTitle]) {
-            themePopUpButton = popupButton;
-            break;
-        }
-    }
-    
-    // inject items
+    NSPopUpButton* themePopUpButton = [self valueForKey:@"_darkButton"];
     [themePopUpButton removeAllItems];
     for (id name in [self TWX_allThemeNames]) {
         [themePopUpButton addItemWithTitle:name];
     }
-    
-    // select current identifier
-    NSString* currentThemeIdentifier = [[@"TMTheme" twx_class] twx_invokeAndReturnValue:@"currentThemeIdentifier"];
-    NSInteger currentThemeIndex = [[self TWX_allThemeIdentifiers] indexOfObject:currentThemeIdentifier];
-    [themePopUpButton selectItemAtIndex:currentThemeIndex];
     
     [self TWXThemeMenu_TweetiePreferencesWindowController_setGeneralView:view];
 }
@@ -77,8 +68,6 @@
     NSString* identifier = [self TWX_allThemeIdentifiers][index];
     [[@"TMTheme" twx_class] twx_invoke:@"switchToThemeWithIdentifier:" arg:identifier];
     [[@"TMTheme" twx_class] twx_invoke:@"saveThemeIdentifierToUserDefaults:" arg:identifier];
-
-    
 }
 
 @end
