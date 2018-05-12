@@ -41,7 +41,7 @@ macOS application in June 2018, whether this will be feasible or not it is still
 
 ## Author
 
-[Carlos Vidal](https://www.twitter.com/carlostify)
+[Carlos Vidal](https://www.twitter.com/nakiostudio)
 
 ## LICENSE
 
