@@ -36,7 +36,7 @@ an option.**
 
 ## Future
 
-The application is still fully functional although it is hard to tell for how long will this will continue.
+The application is still fully functional although it is hard to tell for how long will this continue.
 
 ## Author
 
