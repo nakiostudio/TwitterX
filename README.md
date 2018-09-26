@@ -36,8 +36,7 @@ an option.**
 
 ## Future
 
-The biggest milestone for this project is switching APIs once Twitter shuts down the API backing the
-macOS application in June 2018, whether this will be feasible or not it is still hard to tell.
+The application is still fully functional although it is hard to tell for how long will this will continue.
 
 ## Author
 
