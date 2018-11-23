@@ -12,6 +12,12 @@ All this by injecting code into the official binary.
 Twitter for macOS provides the best *native and free* experience, although it lacks some features
 available on the web version.
 
+<h3 align="center">
+  <a href="https://grnh.se/5f21b9701">
+    <img src="/README/monzo.png" alt="Join me and the amazing Mobile Team at monzo"/>
+  </a>
+</h3>
+
 ## How
 
 > As of 16th of March 2018 you need to provide a valid consumer key and consumer secret in order
