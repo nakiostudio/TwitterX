@@ -7,13 +7,13 @@ All this by injecting code into the official binary.
 <img width="650px" src="/README/screenshot.png"/>
 </h3>
 
+## TL;DR;
+[Tutorial](https://medium.com/@clipper101/the-best-twitter-app-for-macos-d86778e535c3) by Clipp3r.
+
 ## Why
 
 Twitter for macOS provides the best *native and free* experience, although it lacks some features
 available on the web version.
-
-## TL;DR;
-[Tutorial](https://medium.com/@clipper101/the-best-twitter-app-for-macos-d86778e535c3) by Clipp3r.
 
 ## How
 
